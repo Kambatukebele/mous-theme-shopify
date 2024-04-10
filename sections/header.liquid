@@ -1,31 +1,31 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+{% comment %} <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- if settings.predictive_search_enabled -%}
+<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+{% comment %} {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 {%- if section.settings.menu_type_desktop == 'mega' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
   <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
-{%- if settings.cart_type == "drawer" -%}
+{% comment %} {%- if settings.cart_type == "drawer" -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'component-cart.css' | asset_url | stylesheet_tag }}
   {{ 'component-totals.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
-
+{%- endif -%} {% endcomment %}
+{% comment %} 
 <noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript> {% endcomment %}
 
-<style>
+{% comment %} <style>
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -83,8 +83,8 @@
       padding-top: 0.5rem;
     }
   }
-</style>
-
+</style> {% endcomment %}
+{% comment %} 
 {%- style -%}
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
@@ -107,16 +107,16 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-{%- endstyle -%}
+{%- endstyle -%} {% endcomment %}
 
-<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+{% comment %} <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-{%- if settings.cart_type == "drawer" -%}
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+{% comment %} {%- if settings.cart_type == "drawer" -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
+{%- endif -%} {% endcomment %}
+{% comment %} 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
   <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
@@ -131,17 +131,17 @@
   <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
-</svg>
+</svg> {% endcomment %}
 
-{%- liquid
+{% comment %} {%- liquid
   for block in section.blocks
     if block.type == '@app'
       assign has_app_block = true
     endif
   endfor
--%}
+-%} {% endcomment %}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+{% comment %} <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -337,148 +337,148 @@
       </a>
     </div>
   </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}> {% endcomment %}
 
-{%- if settings.cart_type == "notification" -%}
+{% comment %} {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 {% javascript %}
-  class StickyHeader extends HTMLElement {
-    constructor() {
-      super();
-    }
+  // class StickyHeader extends HTMLElement {
+  //   constructor() {
+  //     super();
+  //   }
 
-    connectedCallback() {
-      this.header = document.querySelector('.section-header');
-      this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
-      this.headerBounds = {};
+  //   connectedCallback() {
+  //     this.header = document.querySelector('.section-header');
+  //     this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+  //     this.headerBounds = {};
 
-      this.setHeaderHeight();
+  //     this.setHeaderHeight();
 
-      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+  //     window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
 
-      if (this.headerIsAlwaysSticky) {
-        this.header.classList.add('shopify-section-header-sticky');
-      };
+  //     if (this.headerIsAlwaysSticky) {
+  //       this.header.classList.add('shopify-section-header-sticky');
+  //     };
 
-      this.currentScrollTop = 0;
-      this.preventReveal = false;
-      this.predictiveSearch = this.querySelector('predictive-search');
+  //     this.currentScrollTop = 0;
+  //     this.preventReveal = false;
+  //     this.predictiveSearch = this.querySelector('predictive-search');
 
-      this.onScrollHandler = this.onScroll.bind(this);
-      this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+  //     this.onScrollHandler = this.onScroll.bind(this);
+  //     this.hideHeaderOnScrollUp = () => this.preventReveal = true;
 
-      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-      window.addEventListener('scroll', this.onScrollHandler, false);
+  //     this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+  //     window.addEventListener('scroll', this.onScrollHandler, false);
 
-      this.createObserver();
-    }
+  //     this.createObserver();
+  //   }
 
-    setHeaderHeight() {
-      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
-    }
+  //   setHeaderHeight() {
+  //     document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+  //   }
 
-    disconnectedCallback() {
-      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-      window.removeEventListener('scroll', this.onScrollHandler);
-    }
+  //   disconnectedCallback() {
+  //     this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+  //     window.removeEventListener('scroll', this.onScrollHandler);
+  //   }
 
-    createObserver() {
-      let observer = new IntersectionObserver((entries, observer) => {
-        this.headerBounds = entries[0].intersectionRect;
-        observer.disconnect();
-      });
+  //   createObserver() {
+  //     let observer = new IntersectionObserver((entries, observer) => {
+  //       this.headerBounds = entries[0].intersectionRect;
+  //       observer.disconnect();
+  //     });
 
-      observer.observe(this.header);
-    }
+  //     observer.observe(this.header);
+  //   }
 
-    onScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  //   onScroll() {
+  //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+  //     if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
-      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-        this.header.classList.add('scrolled-past-header');
-        if (this.preventHide) return;
-        requestAnimationFrame(this.hide.bind(this));
-      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-        this.header.classList.add('scrolled-past-header');
-        if (!this.preventReveal) {
-          requestAnimationFrame(this.reveal.bind(this));
-        } else {
-          window.clearTimeout(this.isScrolling);
+  //     if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+  //       this.header.classList.add('scrolled-past-header');
+  //       if (this.preventHide) return;
+  //       requestAnimationFrame(this.hide.bind(this));
+  //     } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+  //       this.header.classList.add('scrolled-past-header');
+  //       if (!this.preventReveal) {
+  //         requestAnimationFrame(this.reveal.bind(this));
+  //       } else {
+  //         window.clearTimeout(this.isScrolling);
 
-          this.isScrolling = setTimeout(() => {
-            this.preventReveal = false;
-          }, 66);
+  //         this.isScrolling = setTimeout(() => {
+  //           this.preventReveal = false;
+  //         }, 66);
 
-          requestAnimationFrame(this.hide.bind(this));
-        }
-      } else if (scrollTop <= this.headerBounds.top) {
-        this.header.classList.remove('scrolled-past-header');
-        requestAnimationFrame(this.reset.bind(this));
-      }
+  //         requestAnimationFrame(this.hide.bind(this));
+  //       }
+  //     } else if (scrollTop <= this.headerBounds.top) {
+  //       this.header.classList.remove('scrolled-past-header');
+  //       requestAnimationFrame(this.reset.bind(this));
+  //     }
 
-      this.currentScrollTop = scrollTop;
-    }
+  //     this.currentScrollTop = scrollTop;
+  //   }
 
-    hide() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
-      this.closeMenuDisclosure();
-      this.closeSearchModal();
-    }
+  //   hide() {
+  //     if (this.headerIsAlwaysSticky) return;
+  //     this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
+  //     this.closeMenuDisclosure();
+  //     this.closeSearchModal();
+  //   }
 
-    reveal() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.add('shopify-section-header-sticky', 'animate');
-      this.header.classList.remove('shopify-section-header-hidden');
-    }
+  //   reveal() {
+  //     if (this.headerIsAlwaysSticky) return;
+  //     this.header.classList.add('shopify-section-header-sticky', 'animate');
+  //     this.header.classList.remove('shopify-section-header-hidden');
+  //   }
 
-    reset() {
-      if (this.headerIsAlwaysSticky) return;
-      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
-    }
+  //   reset() {
+  //     if (this.headerIsAlwaysSticky) return;
+  //     this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+  //   }
 
-    closeMenuDisclosure() {
-      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach(disclosure => disclosure.close());
-    }
+  //   closeMenuDisclosure() {
+  //     this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
+  //     this.disclosures.forEach(disclosure => disclosure.close());
+  //   }
 
-    closeSearchModal() {
-      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
-      this.searchModal.close(false);
-    }
-  }
+  //   closeSearchModal() {
+  //     this.searchModal = this.searchModal || this.header.querySelector('details-modal');
+  //     this.searchModal.close(false);
+  //   }
+  // }
 
-  customElements.define('sticky-header', StickyHeader);
+  // customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
 
 <script type="application/ld+json">
   {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-    {% endif %}
-    "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
-    "url": {{ request.origin | append: page.url | json }}
+    // "@context": "http://schema.org",
+    // "@type": "Organization",
+    // "name": {{ shop.name | json }},
+    // {% if settings.logo %}
+    //   "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    // {% endif %}
+    // "sameAs": [
+    //   {{ settings.social_twitter_link | json }},
+    //   {{ settings.social_facebook_link | json }},
+    //   {{ settings.social_pinterest_link | json }},
+    //   {{ settings.social_instagram_link | json }},
+    //   {{ settings.social_tiktok_link | json }},
+    //   {{ settings.social_tumblr_link | json }},
+    //   {{ settings.social_snapchat_link | json }},
+    //   {{ settings.social_youtube_link | json }},
+    //   {{ settings.social_vimeo_link | json }}
+    // ],
+    // "url": {{ request.origin | append: page.url | json }}
   }
 </script>
 
-{%- if request.page_type == 'index' -%}
+{% comment  %}{%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">
     {
@@ -493,8 +493,61 @@
       "url": {{ request.origin | append: page.url | json }}
     }
   </script>
-{%- endif -%}
+{%- endif -%}{% endcomment %}
+{% comment  %} from me  {% endcomment %}
+<header class="w-full h-fit bg-white">
+  <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
+    <a href="#">
+      {%  if shop.logo  %}
+        <img src="{{ shop.logo | img_url: 'original' }}" alt="{{ shop.name }}" />
+        {% else %}
+        {{ shop.name }}
+      {% endif %}
+    </a>
+    <ul class="hidden xl:flex  xl:justify-center xl:items-center">
+  {% for link in linklists.main-menu.links %}
+    <li class="xl:text-base xl:font-semibold xl:text-black leading-4 xl:mr-5 relative">
+      <a href="{{ link.url }}" class="relative transition-colors inline-block">
+        <span>{{ link.title }}</span>
+        <span class="absolute inset-x-0 left-0 right-0 bottom-0 h-0.5 bg-blue-500 transform origin-bottom transition-all duration-300 scale-x-0"></span>
+      </a>
+    </li>
+  {% endfor %}  
+    </ul>
+    <div class="flex justify-between items-center">
+      <div class="location-selection flex justify-between items-center mr-2 w-[50px] h-[23px]">
+        <img class="block" width="18px" height="18px" loading="eager" src="{{ 'united_states.png' | asset_url  }}" alt="">
+        <small class="w-[22px] h-[18px] flex justify-center items-center text-base">Us$</small>
+      </div>
+      <div class="flex justify-center items-center mr-2">      
+        {%  render 'icon-google-search' %} 
+      </div>
+      <div class="flex justify-center items-center mr-2">
+        {%  render 'icon-google-user' %}      
+      </div>
+      <div class="flex justify-center items-center mr-2">
+        {%  render 'icon-google-card' %}      
+      </div>
+      <div class="flex justify-center items-center md:hidden">
+        {%  render 'icon-google-nav-mobile' %}      
+      </div>
+    </div>
+  </nav>
+</header>
 
+<style>
+  a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -22px; /* Adjust the space here */
+  height:2px; /* Adjust the line thickness here */
+  background-color: #00BEC8; /* Adjust the line color here */
+  transition: all 0.3s ease; /* Smooth transition */
+  transform: scaleX(1);
+}
+</style>
 {% schema %}
 {
   "name": "t:sections.header.name",
