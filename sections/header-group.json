@@ -4,26 +4,11 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "checkbox_announcement_bar_id": true,
+        "richtext_annoucement_id": "Free shipping on order of $49 or more. 30 days returns on all orders.",
+        "background_announcement_id": "#00bec8",
+        "text_announcement_id": "#ffffff"
       }
     },
     "header": {
