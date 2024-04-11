@@ -495,24 +495,24 @@
   </script>
 {%- endif -%}{% endcomment %}
 {% comment  %} from me  {% endcomment %}
-<header class="w-full h-fit bg-white">
+<header class="w-full h-fit bg-white relative">
   <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
     <a href="#">
-      {%  if shop.logo  %}
-        <img src="{{ shop.logo | img_url: 'original' }}" alt="{{ shop.name }}" />
+      {% if shop.brand %}
+        <img width="30px" height="30px" loading="lazy" src="{{ shop.logo | image_url: 'original' }}" alt="{{ shop.name }}" />
         {% else %}
         {{ shop.name }}
       {% endif %}
     </a>
-    <ul class="hidden xl:flex  xl:justify-center xl:items-center">
-  {% for link in linklists.main-menu.links %}
-    <li class="xl:text-base xl:font-semibold xl:text-black leading-4 xl:mr-5 relative">
-      <a href="{{ link.url }}" class="relative transition-colors inline-block">
-        <span>{{ link.title }}</span>
-        <span class="absolute inset-x-0 left-0 right-0 bottom-0 h-0.5 bg-blue-500 transform origin-bottom transition-all duration-300 scale-x-0"></span>
-      </a>
-    </li>
-  {% endfor %}  
+    <ul class="hidden lg:flex  lg:justify-center lg:items-center">
+      {% for link in linklists.main-menu.links %}
+        <li class="lg:text-sm xl:text-base lg:font-medium lg:text-black leading-4 lg:mr-5 relative">
+          <a href="{{ link.url }}" class="relative transition-colors inline-block">
+            <span>{{ link.title }}</span>
+            <span class="absolute inset-x-0 left-0 right-0 bottom-0 h-0.5 bg-blue-500 transform origin-bottom transition-all duration-300 scale-x-0"></span>
+          </a>
+        </li>
+      {% endfor %}  
     </ul>
     <div class="flex justify-between items-center">
       <div class="location-selection flex justify-between items-center mr-2 w-[50px] h-[23px]">
@@ -528,8 +528,33 @@
       <div class="flex justify-center items-center mr-2">
         {%  render 'icon-google-card' %}      
       </div>
-      <div class="flex justify-center items-center md:hidden">
+      <div class="showHideMobileNavigation flex justify-center items-center">
+        <div class="MenuNormal flex justify-center items-center duration-300 ease-in-out lg:hidden">
         {%  render 'icon-google-nav-mobile' %}      
+        </div>
+        <div class="MenuClose hidden justify-center items-center duration-300 ease-in-out lg:hidden">
+          {%  render 'icon-google-close' %}      
+        </div>
+      </div>
+    </div>
+    {% comment  %} Mobile menu {% endcomment %}
+    <div class="MobileNav duration-300 ease-in-out  bg-white w-[300px] -ml-[300px] ml h-svh absolute top-14 md:top-[70px] lg:hidden bottom-0 left-0 z-10">
+      <ul>
+        {% for linkMobile in linklists.main-menu.links %}
+          <li class="text-sm font-medium text-black leading-4 list-none my-5">
+            <a href="{{ linkMobile.url }}" class="inline-block px-3">
+              <span>{{ linkMobile.title }}</span>
+            </a>
+          </li> 
+        {% endfor %}
+      </ul>
+      <div class="my-5 p-2">
+        <h5 class="font-medium text-lg pl-4 mb-5"> Join our global community</h5>
+        <p class="font-light text-sm text-gray-400 pl-4 mb-3">Keep up-date with our latest product launches, epic stunts and special offers.</p>
+        <form class="flex justify-center items-center">
+          <input class="block border w-32 p-2 rounded-tl-lg rounded-bl-lg" name="name" placeholder="Email">
+          <button style="background-color:#00BEC8;" class="text-white p-2 rounded-tr-lg rounded-br-lg block">Sign Up</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -540,7 +565,7 @@
   content: '';
   position: absolute;
   left: 0;
-  right: 0;
+  right: 0;P
   bottom: -22px; /* Adjust the space here */
   height:2px; /* Adjust the line thickness here */
   background-color: #00BEC8; /* Adjust the line color here */
@@ -548,6 +573,43 @@
   transform: scaleX(1);
 }
 </style>
+
+<script>
+  // Hamburger Menu Calle MobileMenuNormal
+  let MobileMenuNormal = document.getElementsByClassName("MenuNormal")[0];
+  // Close Menu
+  let MobileMenuClose = document.getElementsByClassName("MenuClose")[0];
+  // Mobile Navigation
+  let MobileNav = document.getElementsByClassName("MobileNav")[0];
+  
+  // Hamburger Menu Clicked
+  MobileMenuNormal.addEventListener("click", () =>{
+    // Remove MobileMenuNormal
+    MobileMenuNormal.classList.add("hidden");
+    MobileMenuNormal.classList.remove("flex");
+    //Add MobileMenuClose
+    MobileMenuClose.classList.remove("hidden");
+    MobileMenuClose.classList.add("flex");
+    //Show Menu Navigation
+    MobileNav.classList.remove("-ml-[300px]");
+    MobileNav.classList.add("ml-[0px]");
+  });
+
+  // MenuClose Clicked
+  MobileMenuClose.addEventListener("click", () =>{
+    // Add MobileMenuNormal
+    MobileMenuNormal.classList.remove("hidden");
+    MobileMenuNormal.classList.add("flex");
+    //hide MobileMenuClose
+    MobileMenuClose.classList.add("hidden");
+    MobileMenuClose.classList.remove("flex");
+    //hide Menu Navigation
+    MobileNav.classList.add("-ml-[300px]");
+    MobileNav.classList.remove("ml-[0px]");
+  });
+
+</script>
+
 {% schema %}
 {
   "name": "t:sections.header.name",
