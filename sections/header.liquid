@@ -1,7 +1,5 @@
-
 {% comment %} <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
-
 
 {% comment %} {%- if settings.cart_type == "drawer" -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
@@ -90,19 +88,19 @@
   </script>
 {%- endif -%}{% endcomment %}
 {% comment  %} from me  {% endcomment %}
-<header class="w-full h-fit bg-white relative">
+<header style="background-color:{{ section.settings.header_background_color_id }};" class="w-full h-fit relative {% if section.settings.header_bottom_separator_id  %} border-b {% endif %}">
   <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
-    <a href="#">
-      {% if shop.brand %}
-        <img width="30px" height="30px" loading="lazy" src="{{ shop.logo | image_url: 'original' }}" alt="{{ shop.name }}" />
+    <a href="#" style="width:{{ section.settings.site_logo_size_id }}px;" class="block">
+      {% if section.settings.site_logo != blank %}
+        {{ section.settings.site_logo |  image_url: width:full | image_tag }}
         {% else %}
         {{ shop.name }}
       {% endif %}
     </a>
     <ul class="hidden lg:flex  lg:justify-center lg:items-center">
       {% for link in linklists.main-menu.links %}
-        <li class="lg:text-sm xl:text-base lg:font-medium lg:text-black leading-4 lg:mx-5">
-          <a href="{{ link.url }}" class="lg:hover:text-cyan-600">
+        <li id="menu-hover" class="{% if section.settings.header_font_style_id %} {{ section.settings.header_font_style_id }} {% endif %} lg:text-sm xl:text-base lg:font-medium lg:text-black leading-4 lg:mx-5">
+          <a href="{{ link.url }}">
             {{ link.title }}
           </a>
         </li>
@@ -153,11 +151,11 @@
     </div>
   </nav>
   {%  comment  %} Header on click seach icon {% endcomment %}
-  <div class="second-header absolute -mt-36 top-0 left-0 right-0 w-full h-fit bg-white duration-300 ease-in-out z-10">
+  <div style="background-color:{{ section.settings.header_background_color_id }};" class="second-header absolute -mt-36 top-0 left-0 right-0 w-full h-fit duration-300 ease-in-out z-10">
     <div class="mx-4 min-w-72 flex justify-between items-center h-20 md:mx-8 ">
-      <a class="hidden lg:flex lg:justify-start lg:items-center lg:w-[216px] lg:h-[45px]" href="#">
-        {% if shop.brand %}
-          <img width="30px" height="30px" loading="lazy" src="{{ shop.logo | image_url: 'original' }}" alt="{{ shop.name }}" />
+      <a style="width:{{ section.settings.site_logo_size_id }}px;" class="hidden lg:flex lg:justify-start lg:items-center lg:w-[216px] lg:h-[45px]" href="#">
+        {% if section.settings.site_logo != blank %}
+          {{ section.settings.site_logo |  image_url: width:full | image_tag }}
           {% else %}
           {{ shop.name }}
         {% endif %}
@@ -174,35 +172,65 @@
     </div>
   </div>
   {%  comment  %} Header on click seach icon mega menu {% endcomment %}
-  <div class="mega-menu absolute -mt-[1200px]  top-16 left-0 right-0 block w-full h-fit bg-white border py-9 duration-700 ease-in-out z-20">
+  <div style="background-color:{{ section.settings.header_background_color_id }};" class="mega-menu absolute -mt-[1200px]  top-16 left-0 right-0 block w-full h-fit border py-9 duration-700 ease-in-out z-20">
     <div class="mx-4 min-w-72 lg:flex lg:justify-between lg:items-start lg:w-full lg:max-w-[900px] lg:mx-auto">
       <div class="block lg:w-[280px]">
         <div class="lg:w-full">
-          <h5 class="font-semibold text-base text-black mb-3">Suggestions</h5>
-          <p class="font-normal text-base text-black pl-3 mb-4">
-            <a href="#">airfoam</a>
+          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base mb-3">
+            {{ section.settings.title_mega_menu_top }}
+          </h5>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
+              {{ section.settings.subtitle_1_mega_menu_top }}
+            </a>
           </p>
-          <p class="font-normal text-base text-black pl-3 mb-4">
-            <a href="#">All Cases</a>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
+              {{ section.settings.subtitle_2_mega_menu_top }}
+            </a>
           </p>
-          <p class="font-normal text-base text-black pl-3 mb-4">
-            <a href="#">Pixel 7 Pro</a>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
+              {{ section.settings.subtitle_3_mega_menu_top }}
+            </a>
           </p>
-          <p class="font-normal text-base text-black pl-3 mb-4">
-            <a href="#">iPhone 14 Pro Max Cases and Accessories</a>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
+              {{ section.settings.subtitle_4_mega_menu_top }}
+            </a>
           </p>
         </div>
         <div class="lg:w-full">
-          <h5 class="font-semibold text-base text-black mb-3">Help & Support</h5>
-          <p class="font-normal text-base text-black pl-3 mb-4"><a href="#">Deliveries</a></p>
-          <p class="font-normal text-base text-black pl-3 mb-4"><a href="#">Return and Refunds</a></p>
-          <p class="font-normal text-base text-black pl-3 mb-4"><a href="#">Order tracking</a></p>
-          <p class="font-normal text-base text-black pl-3 mb-4"><a href="#">FAQs</a></p>
+          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mb-3">
+            {{ section.settings.title_mega_menu_bottom }}
+          </h5>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
+              {{ section.settings.subtitle_1_mega_menu_bottom }}
+            </a>
+          </p>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
+              {{ section.settings.subtitle_2_mega_menu_bottom }}
+            </a>
+          </p>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
+              {{ section.settings.subtitle_3_mega_menu_bottom }}
+            </a>
+          </p>
+          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+            <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
+              {{ section.settings.subtitle_4_mega_menu_bottom }}
+            </a>
+          </p>
         </div>
       </div>
       <div class="block lg:w-[600px]">
         <div class="lg:w-[600px]">
-          <h5 class="font-semibold text-base text-black mt-5 mb-2 lg:mt-0 lg:pl-5">Treding now</h5>
+          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mt-5 mb-2 lg:mt-0 lg:pl-5">
+            {{ section.settings.title_mega_menu_product }}
+          </h5>
           <div class="flex justify-center items-center overflow-x-scroll min-w-[280px] lg:min-w-0 lg:w-[600px] mx-auto">
             <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
               <div class="w-full min-w-[136px]">
@@ -233,11 +261,11 @@
             </a> 
             <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
               <div class="w-full min-w-[136px]">
-                  <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
+                <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
               </div>
               <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
-                  <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
-                  <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
+                <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
+                <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
               </div>
             </a>
           </div>
@@ -246,6 +274,19 @@
     </div>
   </div>
 </header>
+
+<style>
+  #menu-hover{
+    color: {{ section.settings.header_menu_color_id }};
+  }
+  #menu-hover:hover{
+    color: {{ section.settings.header_menu_color_hover_id }};
+  }
+  .mega-menu_text_hover:hover{
+    color:{{ section.settings.mega-menu_text_hover }}
+  }
+</style>
+
 
 <script>
   // Hamburger Menu Calle MobileMenuNormal
@@ -323,61 +364,204 @@
   "max_blocks": 3,
   "settings": [
     {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
+      "type": "header",
+      "content": "Logo"
     },
     {
-      "type": "select",
-      "id": "sticky_header_type",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
-        },
-        {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
-        },
-        {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
-        },
-        {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
-        }
-      ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
+      "type": "image_picker",
+      "id": "site_logo",
+      "label": "Choose Your Logo"
+    },
+    {
+      "type": "range",
+      "id": "site_logo_size_id",
+      "label": "Logo Size",
+      "min": 120,
+      "max": 250,
+      "step": 10,
+      "default": 150,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Header Background Color"
+    },
+    {
+      "type": "color",
+      "id": "header_background_color_id",
+      "label": "Pick Your Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "header_menu_color_id",
+      "label": "Menu Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "header_menu_color_hover_id",
+      "label": "Hover Text Color",
+      "default": "#808080"
     },
     {
       "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "id": "header_bottom_separator_id",
+      "label": "Add line separator",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "header_font_style_id",
+      "label": "Text Font Style",
+      "options": [
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        }
+      ],
+      "default": "lowercase"
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
+      "content": "Search Mega Menu Info"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "title_mega_menu_all",
+      "label": "Choose Title Color",
+      "default": "#ffffff"
     },
     {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "subtitle_mega_menu_all",
+      "label": "Choose Subtitle Color",
+      "default": "#000000"
     },
     {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
+      "type": "color",
+      "id": "mega-menu_text_hover",
+      "label": "Hover Color On Search Titles & Subtitles",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "title_mega_menu_top",
+      "label": "Add a Title Top",
+      "placeholder": "Ex: Subscription"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_1_mega_menu_top",
+      "label": "Add a subtitle 1",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_1_mega_menu_top",
+      "label": "Add an URL 1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_2_mega_menu_top",
+      "label": "Add a subtitle 2",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_2_mega_menu_top",
+      "label": "Add an URL 2"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_3_mega_menu_top",
+      "label": "Add a subtitle 3",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_3_mega_menu_top",
+      "label": "Add an URL 3"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_4_mega_menu_top",
+      "label": "Add a subtitle 4",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_4_mega_menu_top",
+      "label": "Add an URL 4"
+    },
+    {
+      "type": "text",
+      "id": "title_mega_menu_bottom",
+      "label": "Add A Title Bottom",
+      "placeholder": "Ex: Help & Support"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_1_mega_menu_bottom",
+      "label": "Add a subtitle 1",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_1_mega_menu_bottom",
+      "label": "Add an URL 1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_2_mega_menu_bottom",
+      "label": "Add a subtitle 2",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_2_mega_menu_bottom",
+      "label": "Add an URL 2"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_3_mega_menu_bottom",
+      "label": "Add a subtitle 3",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_3_mega_menu_bottom",
+      "label": "Add an URL 3"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_4_mega_menu_bottom",
+      "label": "Add a subtitle 4",
+      "placeholder": "Ex: airfoam"
+    },
+    {
+      "type": "url",
+      "id": "subtitle_url_4_mega_menu_bottom",
+      "label": "Add an URL 4"
+    },
+    {
+      "type": "text",
+      "id": "title_mega_menu_product",
+      "label": "Add a Product List Name"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products",
+      "limit": 12
     },
     {
       "type": "checkbox",
