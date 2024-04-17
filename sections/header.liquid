@@ -88,191 +88,197 @@
   </script>
 {%- endif -%}{% endcomment %}
 {% comment  %} from me  {% endcomment %}
-<header style="background-color:{{ section.settings.header_background_color_id }};" class="w-full h-fit relative {% if section.settings.header_bottom_separator_id  %} border-b {% endif %}">
-  <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
-    <a href="#" style="width:{{ section.settings.site_logo_size_id }}px;" class="block">
-      {% if section.settings.site_logo != blank %}
-        {{ section.settings.site_logo |  image_url: width:full | image_tag }}
-        {% else %}
-        {{ shop.name }}
-      {% endif %}
-    </a>
-    <ul class="hidden lg:flex  lg:justify-center lg:items-center">
-      {% for link in linklists.main-menu.links %}
-        <li id="menu-hover" class="{% if section.settings.header_font_style_id %} {{ section.settings.header_font_style_id }} {% endif %} lg:text-sm xl:text-base lg:font-medium lg:text-black leading-4 lg:mx-5">
-          <a href="{{ link.url }}">
-            {{ link.title }}
-          </a>
-        </li>
-      {% endfor %}  
-    </ul>
-    <div class="flex justify-between items-center">
-      <div class="location-selection flex justify-between items-center mr-2 w-[50px] h-[23px] cursor-pointer">
-        <img class="block" width="18px" height="18px" loading="eager" src="{{ 'united_states.png' | asset_url  }}" alt="">
-        <small class="w-[22px] h-[18px] flex justify-center items-center text-base">Us$</small>
-      </div>
-      <div class="icon-search flex justify-center items-center mr-2 cursor-pointer">      
-        {%  render 'icon-google-search' %} 
-      </div>
-      <div class="flex justify-center items-center mr-2 cursor-pointer">
-        {%  render 'icon-google-user' %}      
-      </div>
-      <div class="flex justify-center items-center mr-2 cursor-pointer">
-        {%  render 'icon-google-card' %}      
-      </div>
-      <div class="showHideMobileNavigation flex justify-center items-center">
-        <div class="MenuNormal flex justify-center items-center duration-300 ease-in-out lg:hidden">
-        {%  render 'icon-google-nav-mobile' %}      
-        </div>
-        <div class="MenuClose hidden justify-center items-center duration-300 ease-in-out lg:hidden">
-          {%  render 'icon-google-close' %}      
-        </div>
-      </div>
-    </div>
-    {% comment  %} Mobile menu {% endcomment %}
-    <div class="MobileNav duration-300 ease-in-out  bg-white w-[300px] -ml-[300px] ml h-svh absolute top-14 md:top-[70px] lg:hidden bottom-0 left-0 z-10">
-      <ul>
-        {% for linkMobile in linklists.main-menu.links %}
-          <li class="text-sm font-medium text-black leading-4 list-none my-5">
-            <a href="{{ linkMobile.url }}" class="inline-block px-3">
-              <span>{{ linkMobile.title }}</span>
-            </a>
-          </li> 
-        {% endfor %}
-      </ul>
-      <div class="my-5 p-2">
-        <h5 class="font-medium text-lg pl-4 mb-5"> Join our global community</h5>
-        <p class="font-light text-sm text-gray-400 pl-4 mb-3">Keep up-date with our latest product launches, epic stunts and special offers.</p>
-        <form class="flex justify-center items-center">
-          <input class="block border w-32 p-2 rounded-tl-lg rounded-bl-lg" name="name" placeholder="Email">
-          <button style="background-color:#00BEC8;" class="text-white p-2 rounded-tr-lg rounded-br-lg block">Sign Up</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  {%  comment  %} Header on click seach icon {% endcomment %}
-  <div style="background-color:{{ section.settings.header_background_color_id }};" class="second-header absolute -mt-36 top-0 left-0 right-0 w-full h-fit duration-300 ease-in-out z-10">
-    <div class="mx-4 min-w-72 flex justify-between items-center h-20 md:mx-8 ">
-      <a style="width:{{ section.settings.site_logo_size_id }}px;" class="hidden lg:flex lg:justify-start lg:items-center lg:w-[216px] lg:h-[45px]" href="#">
+<header class="{% if section.settings.enable_sticky_header_on_scroll %} header {% endif %} duration-700 ease-in-out">
+  <section style="background-color:{{ section.settings.header_background_color_id }};" class="w-full h-fit relative {% if section.settings.header_bottom_separator_id  %} border-b {% endif %}">
+    <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
+      <a href="#" style="width:{{ section.settings.site_logo_size_id }}px;" class="block">
         {% if section.settings.site_logo != blank %}
           {{ section.settings.site_logo |  image_url: width:full | image_tag }}
           {% else %}
           {{ shop.name }}
         {% endif %}
       </a>
-      <form class="w-full min-w-[200px] h-[45px] flex justify-center items-center lg:w-[600px] lg:min-w-0 lg:red-red-600">
-        <input class="w-full h-[45px] text-black text-sm font-thin border block pl-3 rounded-tl-full rounded-bl-full lg:w-[450px]" type="text" name="name" placeholder="Search by colour, device or product type...">
-        <button style="background-color: #1D2122;" class="w-[64px] h-[45px] text-white flex justify-center items-center rounded-tr-full rounded-br-full cursor-pointer">
-          {%  render 'icon-google-search' %}
-        </button>
-      </form>
-      <div class="close-second-header flex justify-center items-center w-[42px] h-[45px] cursor-pointer">
-        {%  render 'icon-google-close' %}
+      <ul class="hidden lg:flex  lg:justify-center lg:items-center">
+        {% for link in linklists.main-menu.links %}
+          <li id="menu-hover" class="{% if section.settings.header_font_style_id %} {{ section.settings.header_font_style_id }} {% endif %} lg:text-sm xl:text-base lg:font-medium lg:text-black leading-4 lg:mx-5">
+            <a href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}  
+      </ul>
+      <div class="flex justify-between items-center">
+        {% if section.settings.enable_language_selector == true %}
+          <div class="location-selection flex justify-between items-center mr-2 w-[50px] h-[23px] cursor-pointer">
+            <img class="block" width="18px" height="18px" loading="eager" src="{{ 'united_states.png' | asset_url  }}" alt="">
+            <small class="w-[22px] h-[18px] flex justify-center items-center text-base">Us$</small>
+          </div>
+        {% endif %}
+        <div class="icon-search flex justify-center items-center mr-2 cursor-pointer">      
+          {%  render 'icon-google-search' %} 
+        </div>
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="flex justify-center items-center mr-2 cursor-pointer">
+            {%  render 'icon-google-user' %}        
+          </a>
+        {%- endif -%}
+        <div class="flex justify-center items-center mr-2 cursor-pointer">
+          {%  render 'icon-google-card' %}      
+        </div>
+        <div class="showHideMobileNavigation flex justify-center items-center">
+          <div class="MenuNormal flex justify-center items-center duration-300 ease-in-out lg:hidden">
+          {%  render 'icon-google-nav-mobile' %}      
+          </div>
+          <div class="MenuClose hidden justify-center items-center duration-300 ease-in-out lg:hidden">
+            {%  render 'icon-google-close' %}      
+          </div>
+        </div>
+      </div>
+      {% comment  %} Mobile menu {% endcomment %}
+      <div class="MobileNav duration-300 ease-in-out  bg-white w-[300px] -ml-[300px] ml h-svh absolute top-14 md:top-[70px] lg:hidden bottom-0 left-0 z-10">
+        <ul>
+          {% for linkMobile in linklists.main-menu.links %}
+            <li class="text-sm font-medium text-black leading-4 list-none my-5">
+              <a href="{{ linkMobile.url }}" class="inline-block px-3">
+                <span>{{ linkMobile.title }}</span>
+              </a>
+            </li> 
+          {% endfor %}
+        </ul>
+        <div class="my-5 p-2">
+          <h5 class="font-medium text-lg pl-4 mb-5"> Join our global community</h5>
+          <p class="font-light text-sm text-gray-400 pl-4 mb-3">Keep up-date with our latest product launches, epic stunts and special offers.</p>
+          <form class="flex justify-center items-center">
+            <input class="block border w-32 p-2 rounded-tl-lg rounded-bl-lg" name="name" placeholder="Email">
+            <button style="background-color:#00BEC8;" class="text-white p-2 rounded-tr-lg rounded-br-lg block">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    {%  comment  %} Header on click seach icon {% endcomment %}
+    <div style="background-color:{{ section.settings.header_background_color_id }};" class="second-header absolute -mt-36 top-0 left-0 right-0 w-full h-fit duration-300 ease-in-out z-10">
+      <div class="mx-4 min-w-72 flex justify-between items-center h-20 md:mx-8">
+        <a style="width:{{ section.settings.site_logo_size_id }}px;" class="hidden lg:flex lg:justify-start lg:items-center lg:w-[216px] lg:h-[45px]" href="#">
+          {% if section.settings.site_logo != blank %}
+            {{ section.settings.site_logo |  image_url: width:full | image_tag }}
+            {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </a>
+        <form class="w-full min-w-[200px] h-[45px] flex justify-center items-center lg:w-[600px] lg:min-w-0 lg:red-red-600">
+          <input class="w-full h-[45px] text-black text-sm font-thin border block pl-3 rounded-tl-full rounded-bl-full lg:w-[450px]" type="text" name="name" placeholder="Search by colour, device or product type...">
+          <button style="background-color: #1D2122;" class="w-[64px] h-[45px] text-white flex justify-center items-center rounded-tr-full rounded-br-full cursor-pointer">
+            {%  render 'icon-google-search' %}
+          </button>
+        </form>
+        <div class="close-second-header flex justify-center items-center w-[42px] h-[45px] cursor-pointer">
+          {%  render 'icon-google-close' %}
+        </div>
       </div>
     </div>
-  </div>
-  {%  comment  %} Header on click seach icon mega menu {% endcomment %}
-  <div style="background-color:{{ section.settings.header_background_color_id }};" class="mega-menu absolute -mt-[1200px]  top-16 left-0 right-0 block w-full h-fit border py-9 duration-700 ease-in-out z-20">
-    <div class="mx-4 min-w-72 lg:flex lg:justify-between lg:items-start lg:w-full lg:max-w-[900px] lg:mx-auto">
-      <div class="block lg:w-[280px]">
-        <div class="lg:w-full">
-          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base mb-3">
-            {{ section.settings.title_mega_menu_top }}
-          </h5>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
-              {{ section.settings.subtitle_1_mega_menu_top }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
-              {{ section.settings.subtitle_2_mega_menu_top }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
-              {{ section.settings.subtitle_3_mega_menu_top }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
-              {{ section.settings.subtitle_4_mega_menu_top }}
-            </a>
-          </p>
+    {%  comment  %} Header on click seach icon mega menu {% endcomment %}
+    <div style="background-color:{{ section.settings.header_background_color_id }};" class="mega-menu absolute -mt-[1200px]  top-20 left-0 right-0 block w-full h-fit border py-9 duration-700 ease-in-out z-20">
+      <div class="mx-4 min-w-72 lg:flex lg:justify-between lg:items-start lg:w-full lg:max-w-[900px] lg:mx-auto">
+        <div class="block lg:w-[280px]">
+          <div class="lg:w-full">
+            <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base mb-3">
+              {{ section.settings.title_mega_menu_top }}
+            </h5>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
+                {{ section.settings.subtitle_1_mega_menu_top }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
+                {{ section.settings.subtitle_2_mega_menu_top }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
+                {{ section.settings.subtitle_3_mega_menu_top }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
+                {{ section.settings.subtitle_4_mega_menu_top }}
+              </a>
+            </p>
+          </div>
+          <div class="lg:w-full">
+            <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mb-3">
+              {{ section.settings.title_mega_menu_bottom }}
+            </h5>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
+                {{ section.settings.subtitle_1_mega_menu_bottom }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
+                {{ section.settings.subtitle_2_mega_menu_bottom }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
+                {{ section.settings.subtitle_3_mega_menu_bottom }}
+              </a>
+            </p>
+            <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
+              <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
+                {{ section.settings.subtitle_4_mega_menu_bottom }}
+              </a>
+            </p>
+          </div>
         </div>
-        <div class="lg:w-full">
-          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mb-3">
-            {{ section.settings.title_mega_menu_bottom }}
-          </h5>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_1_mega_menu_bottom }}">
-              {{ section.settings.subtitle_1_mega_menu_bottom }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_2_mega_menu_bottom }}">
-              {{ section.settings.subtitle_2_mega_menu_bottom }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_3_mega_menu_bottom }}">
-              {{ section.settings.subtitle_3_mega_menu_bottom }}
-            </a>
-          </p>
-          <p style="{{ section.settings.subtitle_mega_menu_all }}" class="mega-menu_text_hover font-normal text-base pl-3 mb-4">
-            <a href="{{ section.settings.subtitle_url_4_mega_menu_bottom }}">
-              {{ section.settings.subtitle_4_mega_menu_bottom }}
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="block lg:w-[600px]">
-        <div class="lg:w-[600px]">
-          <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mt-5 mb-2 lg:mt-0 lg:pl-5">
-            {{ section.settings.title_mega_menu_product }}
-          </h5>
-          <div class="flex justify-center items-center overflow-x-scroll min-w-[280px] lg:min-w-0 lg:w-[600px] mx-auto">
-            <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
-              <div class="w-full min-w-[136px]">
+        <div class="block lg:w-[600px]">
+          <div class="lg:w-[600px]">
+            <h5 style="color: {{ section.settings.title_mega_menu_all }};" class=" mega-menu_text_hover font-semibold text-base  mt-5 mb-2 lg:mt-0 lg:pl-5">
+              {{ section.settings.title_mega_menu_product }}
+            </h5>
+            <div class="flex justify-center items-center overflow-x-scroll min-w-[280px] lg:min-w-0 lg:w-[600px] mx-auto">
+              <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
+                <div class="w-full min-w-[136px]">
+                    <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
+                </div>
+                <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
+                    <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
+                    <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
+                </div>
+              </a>
+              <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
+                <div class="w-full min-w-[136px]">
+                    <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
+                </div>
+                <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
+                    <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
+                    <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
+                </div>
+              </a>
+              <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
+                <div class="w-full min-w-[136px]">
+                    <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
+                </div>
+                <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
+                    <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
+                    <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
+                </div>
+              </a> 
+              <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
+                <div class="w-full min-w-[136px]">
                   <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
-              </div>
-              <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
+                </div>
+                <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
                   <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
                   <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
-              </div>
-            </a>
-            <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
-              <div class="w-full min-w-[136px]">
-                  <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
-              </div>
-              <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
-                  <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
-                  <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
-              </div>
-            </a>
-            <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
-              <div class="w-full min-w-[136px]">
-                  <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
-              </div>
-              <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
-                  <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
-                  <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
-              </div>
-            </a> 
-            <a class="block bg-gray-200 w-full min-w-[136px] min-h-[279px] mr-3 lg:mx-1 shadow lg:min-w-[300px]">
-              <div class="w-full min-w-[136px]">
-                <img class="w-full h-full object-cover object-center" width="136px" height="136px" loading="lazy" src="{{ 'phonemous.webp' |  asset_url  }}" alt="">
-              </div>
-              <div class="w-full min-w-[136px] h-fit bg-gray-200 py-2">
-                <p class="block w-full px-2 mx-auto text-sm mb-2">MagSafe Compatible Aramid Fibre Phone Case - Limitless 5.0</p>
-                <p class="block w-full px-2 mx-auto text-sm"><span class="font-bold pr-2">$24.99</span><span class="font-light text-gray-400">$64.99</span></p>
-              </div>
-            </a>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </header>
 
 <style>
@@ -287,6 +293,33 @@
   }
 </style>
 
+{% comment %} Script for sticky header on scroll {% endcomment %}
+<script>
+  let lastScrollTop = 0;
+  const header = document.getElementsByClassName("header")[0];
+  window.addEventListener("scroll", () =>{
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      //Scrolling down
+      header.classList.add("fixed");
+      header.classList.add("top-0");
+      header.classList.add("left-0");
+      header.classList.add("right-0");
+      header.classList.add("w-full");
+      header.classList.add("z-50");
+    }else{
+      //Scrolling up
+      header.classList.remove("fixed");
+      header.classList.remove("top-0");
+      header.classList.remove("left-0");
+      header.classList.remove("right-0");
+      header.classList.remove("w-full");
+      header.classList.remove("z-50");
+    }
+    lastScrollTop = scrollTop;
+  });
+</script>
 
 <script>
   // Hamburger Menu Calle MobileMenuNormal
@@ -361,7 +394,6 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
     {
       "type": "header",
@@ -429,6 +461,12 @@
         }
       ],
       "default": "lowercase"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_header_on_scroll",
+      "label": "Enable Sticky Header",
+      "default": false
     },
     {
       "type": "header",
@@ -570,28 +608,10 @@
       "label": "t:sections.header.settings.enable_country_selector.label"
     },
     {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": false,
       "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "@app"
     }
   ]
 }
