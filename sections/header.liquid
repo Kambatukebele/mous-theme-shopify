@@ -1,71 +1,3 @@
-{% comment %} <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
-
-{% comment %} {%- if settings.cart_type == "drawer" -%}
-  {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-  {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-  {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-{%- endif -%} {% endcomment %}
-
-{% comment %} <div class="header-wrapper">
-  {%- liquid
-    assign localization_forms = false
-
-    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
-      assign localization_forms = true
-    endif
-  -%}
-  <header class="header {% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        
-
-      {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
-          {% render 'icon-account' %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
-    </div>
-  </header>
-</div> {% endcomment %}
-
 {% comment %} {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%} {% endcomment %}
@@ -90,7 +22,7 @@
 {% comment  %} from me  {% endcomment %}
 <header class="{% if section.settings.enable_sticky_header_on_scroll %} header {% endif %} duration-700 ease-in-out">
   <section style="background-color:{{ section.settings.header_background_color_id }};" class="w-full h-fit relative {% if section.settings.header_bottom_separator_id  %} border-b {% endif %}">
-    <nav class="mx-4 min-w-72 flex justify-between items-center h-14 md:mx-8 md:h-[70px]">
+    <nav class="w-[90%] mx-auto lg:w-[990px] xl:w-[1200px] 2xl:w-[1480px] flex justify-between items-center h-14  md:h-[70px]">
       <a href="#" style="width:{{ section.settings.site_logo_size_id }}px;" class="block">
         {% if section.settings.site_logo != blank %}
           {{ section.settings.site_logo |  image_url: width:full | image_tag }}
@@ -157,7 +89,7 @@
     </nav>
     {%  comment  %} Header on click seach icon {% endcomment %}
     <div style="background-color:{{ section.settings.header_background_color_id }};" class="second-header absolute -mt-36 top-0 left-0 right-0 w-full h-fit duration-300 ease-in-out z-10">
-      <div class="mx-4 min-w-72 flex justify-between items-center h-20 md:mx-8">
+      <div class="w-[90%] mx-auto lg:w-[990px] xl:w-[1200px] 2xl:w-[1480px] flex justify-between items-center h-20">
         <a style="width:{{ section.settings.site_logo_size_id }}px;" class="hidden lg:flex lg:justify-start lg:items-center lg:w-[216px] lg:h-[45px]" href="#">
           {% if section.settings.site_logo != blank %}
             {{ section.settings.site_logo |  image_url: width:full | image_tag }}
