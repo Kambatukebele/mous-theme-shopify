@@ -612,17 +612,8 @@ video {
 .top-14 {
   top: 56px;
 }
-.top-16 {
-  top: 64px;
-}
-.top-10 {
-  top: 40px;
-}
 .top-20 {
   top: 80px;
-}
-.top-24 {
-  top: 96px;
 }
 .isolate {
   isolation: isolate;

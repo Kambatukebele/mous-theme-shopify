@@ -1,0 +1,60 @@
+<section class="header-image block w-full">
+    <div class="flex justify-center items-center">
+        <div>
+            <h1>Seize the Day</h1>
+            <p>A minimalist aesthetic with maximum functionality</p>
+            <div>
+                <button><a href="#">Shop Day Backpacks</a></button>
+                <button><a href="#">Shop Phone Cases</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .header-image{
+        background: url("{{ section.settings.header_image_picker_id |  image_url: width:full  }}");
+        background-position: center center;
+        background-size: cover;
+        height: {{ section.settings.header_image_picker_height_id }};
+    }
+</style>
+{% schema %}
+{
+    "name": "header-image",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "header_image_picker_id",
+            "label": "Header Image"
+        },
+        {
+            "type": "select",
+            "id": "header_image_picker_height_id",
+            "label": "Header Image Height",
+            "options": [
+                {
+                    "label": "Small",
+                    "value": "50vh"
+                },
+                {
+                    "label": "Medium",
+                    "value": "70vh"
+                },
+                {
+                    "label": "Large",
+                    "value": "100vh"
+                }
+            ],
+            "default": "50vh"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Header Image"
+        }
+    ]
+}
+{% endschema %}
