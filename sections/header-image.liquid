@@ -5,23 +5,22 @@
             {% for block in section.blocks %}
                 {% case block.type %}
                     {% when "text" %}
-                        <h1 style="color: {{ block.settings.h1_color }};" class="text-4xl 
-                            text-{{ section.settings.header_all_text_btn_id }} 
+                        <h1 class="header_h1 text-4xl text-{{ section.settings.header_all_text_btn_id }} 
                             {% if section.settings.text_h1_decoration_id %} 
                                 {{ section.settings.text_h1_decoration_id }} 
-                            {% endif %} mb-2 font-semibold leading-[72px] lg:text-7xl ">
+                            {% endif %} mb-2 font-semibold leading-10 lg:leading-[72px] lg:text-7xl ">
                                 {{ block.settings.h1_text }}
                         </h1>
                     {% when "description" %}
-                        <div style="color:{{ block.settings.header_description_color_id }}" class="text-base leading-6 mb-2 text-{{ section.settings.header_all_text_btn_id }}">
+                        <div class="header_description text-base leading-6 mb-5 text-{{ section.settings.header_all_text_btn_id }}">
                             {{ block.settings.header_description_id }}
                         </div>
                     {% when "buttons" %}
                         <div class="block sm:flex justify-center items-{{ section.settings.header_all_text_btn_id }}">
-                            <button style="background-color: {{ block.settings.button_1_background_color }}; color: {{ block.settings.button_1_text_color }}" class="border py-2 px-3 rounded-md mb-2 text-base sm:mr-3 sm:mb-0">
+                            <button class="box_btn_1 border py-2 px-3 rounded-md mb-2 text-base sm:mr-3 sm:mb-0">
                                 <a class="block" href="{{ block.settings.button_1_url }}">{{ block.settings.button_1_text }}</a>
                             </button>
-                            <button style="background-color: {{ block.settings.button_2_background_color }}; color: {{ block.settings.button_2_text_color }}" class="border block py-2 px-3 rounded-md text-base">
+                            <button  class="box_btn_2 border block py-2 px-3 rounded-md text-base">
                                 <a class="block" href="{{ block.settings.button_2_url }}">{{ block.settings.button_2_text }}</a>
                             </button>
                         </div>                        
@@ -40,11 +39,53 @@
         height: {{ section.settings.header_image_picker_height_id }};
     }
     @media only screen and (max-width: 1024px) {
-    .header-image {
-        height: 70vh;
+        .header-image {
+            height: 70vh;
+        }   
     }
-}
+    /* This is the css for the button inside the header */
+    /* .box_btn_1{
+       
+    } */
 </style>
+{% for blockcss in section.blocks %}
+    {% case blockcss.type %}
+        {% when "text" %}
+            <style>
+                .header_h1{
+                    color: {{ blockcss.settings.h1_color }};
+                }
+            </style>
+        {% when "description" %}
+            <style>
+                .header_description{
+                    color:{{ blockcss.settings.header_description_color_id }}
+                }
+            </style>
+        {% when "buttons" %}
+            <style>
+                .box_btn_1{
+                    background-color: {{ blockcss.settings.button_1_background_color }};
+                    color: {{ blockcss.settings.button_1_text_color }};
+                    border: {% if blockcss.settings.button_1_enable_border_color %} {{ blockcss.settings.button_1_border_color }} 1px solid; {% endif %}
+                }
+                .box_btn_1:hover{
+                    color: {{ blockcss.settings.button_1_hover_color_text }};
+                    background-color: {{ blockcss.settings.button_1_hover_background }};
+                }
+                .box_btn_2{
+                    background-color: {{ blockcss.settings.button_2_background_color }};
+                    color: {{ blockcss.settings.button_2_text_color }};
+                    border: {% if blockcss.settings.button_2_enable_border_color %} {{ blockcss.settings.button_2_border_color }} 1px solid; {% endif %}
+                }
+                .box_btn_2:hover{
+                    color: {{ blockcss.settings.button_2_hover_color_text }};
+                    background-color: {{ blockcss.settings.button_2_hover_background }};
+                }
+            </style>
+        {% else %}            
+    {% endcase %}
+{% endfor %}
 {% schema %}
 {
     "name": "header-image",
@@ -220,6 +261,10 @@
             "limit": 1,
             "settings": [
                 {
+                    "type": "header",
+                    "content": "First Button"
+                },
+                {
                     "type": "text",
                     "id": "button_1_text",
                     "label": "First Button",
@@ -244,6 +289,34 @@
                     "default": "#000000"
                 },
                 {
+                    "type": "color",
+                    "id": "button_1_hover_color_text",
+                    "label": "First Button Hover Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_hover_background",
+                    "label": "First Button Hover Background",
+                    "default": "#000000"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "button_1_enable_border_color",
+                    "label": "Enable Border First Button?",
+                    "default": false
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_border_color",
+                    "label": "First Button Border",
+                    "default": "#000000"
+                },
+                {
+                    "type": "header",
+                    "content": "Second Button"
+                },
+                {
                     "type": "text",
                     "id": "button_2_text",
                     "label": "Second Button",
@@ -265,6 +338,30 @@
                     "type": "color",
                     "id": "button_2_background_color",
                     "label": "Second Button Background Color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_hover_color_text",
+                    "label": "Second Button Hover Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_hover_background",
+                    "label": "Second Button Hover Background",
+                    "default": "#000000"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "button_2_enable_border_color",
+                    "label": "Enable Border Second Button?",
+                    "default": false
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_border_color",
+                    "label": "Second Button Border",
                     "default": "#000000"
                 }
             ]
