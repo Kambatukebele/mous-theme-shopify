@@ -1,0 +1,389 @@
+<section class="header-image w-full relative">
+    <div class="w-[90%] h-[350px] mx-auto  lg:w-[990px] xl:w-[1200px] 2xl:w-[1480px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div style="{% if section.settings.header_box_color_enable_id %}
+        background-color:{{ section.settings.header_box_color_id }}; {% endif %}" class="{% if section.settings.header_box_color_enable_id %}px-5{% endif %} w-full {{ section.settings.header_box_rounded_id }} flex justify-center h-[350px] sm:h-[250px] md:w-[500px] lg:w-[600px] lg:h-[350px] lg:{{ section.settings.header_box_id }}  items-{{ section.settings.header_all_text_btn_id }} flex-col">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when "text" %}
+                        <h1 class="header_h1 text-4xl text-{{ section.settings.header_all_text_btn_id }} 
+                            {% if section.settings.text_h1_decoration_id %} 
+                                {{ section.settings.text_h1_decoration_id }} 
+                            {% endif %} mb-2 font-semibold leading-10 lg:leading-[72px] lg:text-7xl ">
+                                {{ block.settings.h1_text }}
+                        </h1>
+                    {% when "description" %}
+                        <div class="header_description text-base leading-6 mb-5 text-{{ section.settings.header_all_text_btn_id }}">
+                            {{ block.settings.header_description_id }}
+                        </div>
+                    {% when "buttons" %}
+                        <div class="block sm:flex justify-center items-{{ section.settings.header_all_text_btn_id }}">
+                            <button class="box_btn_1 border py-2 px-3 rounded-md mb-2 text-base sm:mr-3 sm:mb-0">
+                                <a class="block" href="{{ block.settings.button_1_url }}">{{ block.settings.button_1_text }}</a>
+                            </button>
+                            <button  class="box_btn_2 border block py-2 px-3 rounded-md text-base">
+                                <a class="block" href="{{ block.settings.button_2_url }}">{{ block.settings.button_2_text }}</a>
+                            </button>
+                        </div>                        
+                {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .header-image{
+        background: url("{{ section.settings.header_image_picker_id |  image_url: width:full  }}");
+        background-position: center center;
+        background-size: cover;
+        height: {{ section.settings.header_image_picker_height_id }};
+    }
+    @media only screen and (max-width: 1024px) {
+        .header-image {
+            height: 70vh;
+        }   
+    }
+    /* This is the css for the button inside the header */
+    /* .box_btn_1{
+       
+    } */
+</style>
+{% for blockcss in section.blocks %}
+    {% case blockcss.type %}
+        {% when "text" %}
+            <style>
+                .header_h1{
+                    color: {{ blockcss.settings.h1_color }};
+                }
+            </style>
+        {% when "description" %}
+            <style>
+                .header_description{
+                    color:{{ blockcss.settings.header_description_color_id }}
+                }
+            </style>
+        {% when "buttons" %}
+            <style>
+                .box_btn_1{
+                    background-color: {{ blockcss.settings.button_1_background_color }};
+                    color: {{ blockcss.settings.button_1_text_color }};
+                    border: {% if blockcss.settings.button_1_enable_border_color %} {{ blockcss.settings.button_1_border_color }} 1px solid; {% endif %}
+                }
+                .box_btn_1:hover{
+                    color: {{ blockcss.settings.button_1_hover_color_text }};
+                    background-color: {{ blockcss.settings.button_1_hover_background }};
+                }
+                .box_btn_2{
+                    background-color: {{ blockcss.settings.button_2_background_color }};
+                    color: {{ blockcss.settings.button_2_text_color }};
+                    border: {% if blockcss.settings.button_2_enable_border_color %} {{ blockcss.settings.button_2_border_color }} 1px solid; {% endif %}
+                }
+                .box_btn_2:hover{
+                    color: {{ blockcss.settings.button_2_hover_color_text }};
+                    background-color: {{ blockcss.settings.button_2_hover_background }};
+                }
+            </style>
+        {% else %}            
+    {% endcase %}
+{% endfor %}
+{% schema %}
+{
+    "name": "header-image",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "header_image_picker_id",
+            "label": "Header Image"
+        },
+        {
+            "type": "select",
+            "id": "header_image_picker_height_id",
+            "label": "Header Image Height On Desktop",
+            "options": [
+                {
+                    "label": "Small",
+                    "value": "50vh"
+                },
+                {
+                    "label": "Medium",
+                    "value": "70vh"
+                },
+                {
+                    "label": "Large",
+                    "value": "100vh"
+                }
+            ],
+            "default": "50vh"
+        },
+        {
+            "type": "header",
+            "content": "Position of the box and the text"
+        },
+        {
+            "type": "checkbox",
+            "id": "header_box_color_enable_id",
+            "label": "Enable Color Box?",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "header_box_color_id",
+            "label": "Header Box Background Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "select",
+            "id": "header_box_rounded_id",
+            "label": "Border Radius",
+            "options": [
+                {
+                    "label": "none",
+                    "value": "rounded-none"
+                },
+                {
+                    "label": "Medium",
+                    "value": "rounded-md"
+                },
+                {
+                    "label": "Large",
+                    "value": "rounded-lg"
+                },
+                {
+                    "label": "Extra Large",
+                    "value": "rounded-xl"
+                },
+                {
+                    "label": "2 Extra Large",
+                    "value": "rounded-2xl"
+                }
+            ],
+            "default": "rounded-none"
+        },
+        {
+            "type": "select",
+            "id": "header_box_id",
+            "label": "Box Position Alignement",
+            "options": [
+                {
+                    "label": "Start",
+                    "value": "mr-auto"
+                },
+                {
+                    "label": "Center",
+                    "value": "mx-auto"
+                },
+                {
+                    "label": "End",
+                    "value": "ml-auto"
+                }
+            ],
+            "default": "mr-auto"
+        },
+        {
+            "type": "select",
+            "id": "header_all_text_btn_id",
+            "label": "Text Element Insite Box Position Alignement",
+            "options": [
+                {
+                    "label": "Start",
+                    "value": "start"
+                },
+                {
+                    "label": "Center",
+                    "value": "center"
+                },
+                {
+                    "label": "End",
+                    "value": "end"
+                }
+            ],
+            "default": "start"
+        },
+        {
+            "type": "select",
+            "id": "text_h1_decoration_id",
+            "label": "H1 Text Decoration",
+            "options": [
+                {
+                    "value": "capitalize",
+                    "label": "Capitalize"
+                },
+                {
+                    "value": "uppercase",
+                    "label": "uppercase"
+                }
+            ],
+            "default": "capitalize"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Text",
+            "type": "text",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "h1_text",
+                    "label": "H1 Text",
+                    "default": "welcome to our store"
+                },
+                {
+                    "type": "color",
+                    "id": "h1_color",
+                    "label": "H1 Color",
+                    "default": "#000000"
+                }
+            ]
+        },
+        {
+            "name": "Description",
+            "type": "description",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "inline_richtext",
+                    "id": "header_description_id",
+                    "label": "Description",
+                    "default": "Welcome to our store. This is a description"
+                },
+                {
+                    "type": "color",
+                    "id": "header_description_color_id",
+                    "label": "Color Description",
+                    "default": "#000000"
+                }
+            ]
+        },
+        {
+            "name": "Buttons",
+            "type": "buttons",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "First Button"
+                },
+                {
+                    "type": "text",
+                    "id": "button_1_text",
+                    "label": "First Button",
+                    "default": "Shop Me Now"
+                },
+                {
+                    "type": "url",
+                    "id": "button_1_url",
+                    "label": "First Button URL",
+                    "info": "https://www.shopify.com"
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_text_color",
+                    "label": "First Button Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_background_color",
+                    "label": "First Button Background Color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_hover_color_text",
+                    "label": "First Button Hover Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_hover_background",
+                    "label": "First Button Hover Background",
+                    "default": "#000000"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "button_1_enable_border_color",
+                    "label": "Enable Border First Button?",
+                    "default": false
+                },
+                {
+                    "type": "color",
+                    "id": "button_1_border_color",
+                    "label": "First Button Border",
+                    "default": "#000000"
+                },
+                {
+                    "type": "header",
+                    "content": "Second Button"
+                },
+                {
+                    "type": "text",
+                    "id": "button_2_text",
+                    "label": "Second Button",
+                    "default": "Shop Now"
+                },
+                {
+                    "type": "url",
+                    "id": "button_2_url",
+                    "label": "Second Button URL",
+                    "info": "https://www.shopify.com"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_text_color",
+                    "label": "Second Button Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_background_color",
+                    "label": "Second Button Background Color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_hover_color_text",
+                    "label": "Second Button Hover Color Text",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_hover_background",
+                    "label": "Second Button Hover Background",
+                    "default": "#000000"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "button_2_enable_border_color",
+                    "label": "Enable Border Second Button?",
+                    "default": false
+                },
+                {
+                    "type": "color",
+                    "id": "button_2_border_color",
+                    "label": "Second Button Border",
+                    "default": "#000000"
+                }
+            ]
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Header Image",
+            "settings": {},
+            "blocks": [
+                {
+                    "type": "text"
+                },
+                {
+                    "type": "description"
+                },
+                {
+                    "type": "buttons"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
