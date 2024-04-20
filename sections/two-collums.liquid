@@ -1,0 +1,216 @@
+<section class="two-collums-all w-full h-full py-5 lg:py-10 lg:h-[700px]">
+    <div class="w-[90%]  h-[664px] mx-auto sm:w-[570px] sm:h-[930px] md:w-[700px] md:h-[439px] lg:w-[990px] lg:h-[605px] xl:w-[1200px] 2xl:w-[1480px] grid gap-4 grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
+        <div class="two-collums-one rounded-{{ section.settings.two_collums_rounded_id }} p-3 w-[250px] mx-auto h-[308px] sm:w-[358px] sm:h-[440px] md:w-[337px] md:h-[414px] lg:w-[464px] lg:h-[606px] xl:w-[592px] xl:h-[645px] 2xl:w-[700px] 2xl:h-[662px] flex justify-end items-center flex-col border">     
+            <h3 style="color: {{ section.settings.two_collums_first_title_color_id }};" class="text-2xl lg:text-[40px] text-center font-semibold mb-1">
+                {{ section.settings.two_collums_first_title_id }}
+            </h3>
+            <p style="color:{{ section.settings.two_collums_first_description_color_id }};" class="text-base lg:text-xl text-center font-thin mb-1">
+                {{ section.settings.two_collums_first_description_id}}
+            </p>
+            <button style="background-color: {{ section.settings.two_collums_first_btntext_bg_id }}; color:{{ section.settings.two_collums_first_btntext_color_id }}" class="two-collums-one-btn mb-2 py-2 px-4 rounded-xl">
+                <a class="section" href="#">{{ section.settings.two_collums_first_btntext_id }}</a>
+            </button>
+        </div>
+        <div class="two-collums-two rounded-{{ section.settings.two_collums_rounded_id }} p-3 w-[250px] mx-auto h-[308px] sm:w-[358px] sm:h-[440px] md:w-[337px] md:h-[414px] lg:w-[464px] lg:h-[606px] xl:w-[592px] xl:h-[645px] 2xl:w-[700px] 2xl:h-[662px] flex justify-end items-center flex-col border">     
+            <h3 style="color: {{ section.settings.two_collums_second_title_color_id }};" class="text-2xl lg:text-[40px] text-center font-semibold mb-1">
+                {{ section.settings.two_collums_second_title_id }}
+            </h3>
+            <p style="color:{{ section.settings.two_collums_second_description_color_id }};" class="text-base lg:text-xl text-center font-thin mb-1">
+                {{ section.settings.two_collums_second_description_id}}
+            </p>
+            <button style="background-color: {{ section.settings.two_collums_second_btntext_bg_id }}; color:{{ section.settings.two_collums_second_btntext_color_id }}" class="two-collums-one-btn mb-2 py-2 px-4 rounded-xl">
+                <a class="block" href="#">
+                    {{ section.settings.two_collums_second_btntext_id }}
+                </a>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    .two-collums-all{
+        /* two_collums_first_image_id */
+        background: {{ section.settings.two_collums_color_background_id }};
+    }
+    .two-collums-one{
+        background: url("{%- if section.settings.two_collums_first_image_id -%}{{- section.settings.two_collums_first_image_id |  image_url: width:full -}} {%- else -%} {{- 'collection-1.svg' |  asset_url -}} {%- endif -%}");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat
+        width: 100%;
+        height: 100%;        
+    }
+    .two-collums-two{
+    background: url("{%- if section.settings.two_collums_second_image_id -%}{{- section.settings.two_collums_second_image_id |  image_url: width:full -}} {%- else -%} {{- 'collection-1.svg' |  asset_url -}} {%- endif -%}");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat
+        width: 100%;
+        height: 100%;   
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Two collums",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Two Collums Section",
+            "info": "Add background color Here"
+        },
+        {
+            "type": "color_background",
+            "id": "two_collums_color_background_id",
+            "label": "Add Section Background Color",
+            "default": "linear-gradient(#ffffff, #000000)"
+        },
+        {
+            "type": "header",
+            "content": "First Block"
+        },
+        {
+            "type": "image_picker",
+            "id": "two_collums_first_image_id",
+            "label": "First Image"
+        },
+        {
+            "type": "text",
+            "id": "two_collums_first_title_id",
+            "label": "First Title",
+            "default": "First Collum"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_first_title_color_id",
+            "label": "First Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "two_collums_first_description_id",
+            "label": "First Description",
+            "default": "<span>First Description text</span>"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_first_description_color_id",
+            "label": "First Description Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "two_collums_first_btntext_id",
+            "label": "First Button Text",
+            "default": "Show now"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_first_btntext_color_id",
+            "label": "First Button Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_first_btntext_bg_id",
+            "label": "First Buton Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Second Block"
+        },
+        {
+            "type": "image_picker",
+            "id": "two_collums_second_image_id",
+            "label": "Second Image"
+        },
+        {
+            "type": "text",
+            "id": "two_collums_second_title_id",
+            "label": "second Title",
+            "default": "second Collum"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_second_title_color_id",
+            "label": "second Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "two_collums_second_description_id",
+            "label": "second Description",
+            "default": "<span>second Description text</span>"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_second_description_color_id",
+            "label": "second Description Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "two_collums_second_btntext_id",
+            "label": "second Button Text",
+            "default": "Show now"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_second_btntext_color_id",
+            "label": "second Button Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "color",
+            "id": "two_collums_second_btntext_bg_id",
+            "label": "Second Button Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Round Images",
+            "info": "Choose how to round your images"
+        },
+        {
+            "type": "select",
+            "id": "two_collums_rounded_id",
+            "label": "Shadow",
+            "options": [
+                {
+                "value": "none",
+                "label": "No rounded"
+                },
+                {
+                "value": "sm",
+                "label": "Shadow Small"
+                },
+                {
+                "value": "md",
+                "label": "Shadow Medium"
+                },
+                {
+                "value": "lg",
+                "label": "Shadow Large"
+                },
+                {
+                "value": "xl",
+                "label": "Shadow Extra Large"
+                },
+                {
+                "value": "2xl",
+                "label": "Shadow 2x Extra Large"
+                }
+            ],
+            "default": "none"
+        }       
+    ],
+    "presets": [
+        {
+            "name": "Two Collums"
+        }
+    ]
+}
+{% endschema %}
