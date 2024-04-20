@@ -75,33 +75,25 @@
     },
     "two_collums_zJjDeW": {
       "type": "two-collums",
-      "blocks": {
-        "collum_one_VVTf6T": {
-          "type": "collum_one",
-          "settings": {
-            "two_collums_image_picker_one_id": true,
-            "two_collums_first_image_id": "shopify:\/\/shop_images\/fashion-portrait.jpg",
-            "two_collums_background_picker_one_id": false,
-            "two_collums_first_color_background_id": "",
-            "collum_one_first_text_id": "First Collum",
-            "collum_one_first_text_color_id": "#000000",
-            "collum_one_first_description_id": "Lorem lorem lorem lorem lren lnre",
-            "collum_one_first_description_color_id": "",
-            "collum_one_first_button_text_id": "Shop Now",
-            "collum_one_first_button_text_bg_id": "#000000",
-            "collum_one_first_button_text_color_id": "#ffffff",
-            "collum_one_first_button_border_enable_id": false,
-            "collum_one_first_button_border_color_id": "#ffffff",
-            "two_collums_first_checkbox_id": false,
-            "two_collums_first_select_id": "sm"
-          }
-        }
-      },
-      "block_order": [
-        "collum_one_VVTf6T"
-      ],
       "settings": {
-        "two_collums_color_background_id": "linear-gradient(136deg, rgba(NaN, NaN, NaN, 0) 11%, rgba(250, 13, 253, 1) 84%)"
+        "two_collums_color_background_id": "",
+        "two_collums_first_image_id": "shopify:\/\/shop_images\/Solovey_Secondary_Homepage_Asset_3_Desktop_1_624x_42679f98-824c-42e5-b26b-17a48319704d.webp",
+        "two_collums_first_title_id": "Aid For War Child",
+        "two_collums_first_title_color_id": "#ffffff",
+        "two_collums_first_description_id": "Case designs made with Ukrainian artists. 50% of profits go to War Child.",
+        "two_collums_first_description_color_id": "#ffffff",
+        "two_collums_first_btntext_id": "Show Collabs",
+        "two_collums_first_btntext_color_id": "#ffffff",
+        "two_collums_first_btntext_bg_id": "#00bec8",
+        "two_collums_second_image_id": "shopify:\/\/shop_images\/Backpack_Secondary_Homepage_Option_1_Desktop_624x_6b4448ef-7dc4-4143-8dc9-f03eb3acc277.webp",
+        "two_collums_second_title_id": "For every commute",
+        "two_collums_second_title_color_id": "#ffffff",
+        "two_collums_second_description_id": "Our water-resistant and impact-absorbing backpacks have you covered for every journey.",
+        "two_collums_second_description_color_id": "#ffffff",
+        "two_collums_second_btntext_id": "Shop Backpacks",
+        "two_collums_second_btntext_color_id": "#ffffff",
+        "two_collums_second_btntext_bg_id": "#00bec8",
+        "two_collums_rounded_id": "2xl"
       }
     }
   },
