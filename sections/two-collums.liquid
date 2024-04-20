@@ -26,23 +26,25 @@
     .two-collums-all{
         background: {{ section.settings.two_collums_color_background_id }};
     }
+    .two-collums-one{
+        background: url("{{ 'collection-1.svg' |  asset_url }}");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;        
+        }
 </style>
 
-{% for blockcss in section.blocks %}
+{% comment %} {% for blockcss in section.blocks %}
     {% case blockcss.title %}
         {% when "collum_one" %}
             {% assign allowImagePicker = blockcss.settings.two_collums_image_picker_one_id %}
-            {{ allowImagePicker }}
             {% assign allowBackgroundPicker = blockcss.settings.two_collums_background_picker_one_id %}
             {% assign imagePicker = blockcss.settings.two_collums_first_image_id %}
             {% assign backgroundPicker = blockcss.settings.two_collums_first_image_id %}
             {% if allowImagePicker == true %}
-                <style>
-                    /* two_collums_image_picker_one_id */
-                    /* two_collums_first_image_id */
-                    /* two_collums_background_picker_one_id */
-                    /* two_collums_first_color_background_id */
-                    
+                <style>                    
                     .two-collums-one{
                         background: url("{% if blockcss.settings.two_collums_first_image_id %} {{ blockcss.settings.two_collums_first_image_id | asset_url }}"); {% else %} background: url("{{ 'collection-1.svg' |  asset_url }}"); {% endif %}
                         background-position: center center;
@@ -55,12 +57,7 @@
                 {% assign allowBackgroundPicker = false %}
             {% endif %}
             {% if allowBackgroundPicker == true %}
-                <style>
-                    /* two_collums_image_picker_one_id */
-                    /* two_collums_first_image_id */
-                    /* two_collums_background_picker_one_id */
-                    /* two_collums_first_color_background_id */
-                    
+                <style>                    
                     .two-collums-one{
                         background: url("{% if blockcss.settings.two_collums_first_image_id %} {{ blockcss.settings.two_collums_first_image_id | asset_url }}"); {% else %} background: url("{{ 'collection-1.svg' |  asset_url }}"); {% endif %};
                         background-position: center center;
@@ -72,10 +69,9 @@
                 </style>
                 {% assign allowImagePicker = false %}
             {% endif %}            
-        {% else %}
-            
+        {% else %}            
     {% endcase %}
-{% endfor %}
+{% endfor %} {% endcomment %}
 
 {% schema %}
 {
