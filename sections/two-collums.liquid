@@ -1,0 +1,237 @@
+<section class="two-collums-all w-full h-full py-5 lg:py-10">
+    <div class="w-[90%]  h-[664px] mx-auto sm:w-[570px] sm:h-[930px] md:w-[650px] md:h-[439px] lg:w-[990px] xl:w-[1200px] 2xl:w-[1480px] grid gap-4 grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
+        <div class="two-collums-one p-3 w-[250px] mx-auto h-[308px] sm:w-[358px] sm:h-[440px] md:w-[337px] md:h-[414px] lg:w-[464px] lg:h-[506px] xl:w-[592px] xl:h-[645px] 2xl:w-[607px] 2xl:h-[662px] flex justify-around items-center flex-col border">     
+            <h3 class="text-2xl text-center font-semibold">In Aid of War Child</h3>
+            <p class="text-base text-center font-normal">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aut?
+            </p>
+            <button class="two-collums-one-btn">
+                <a href="#">Shop Collabs</a>
+            </button>
+        </div>
+        <div class="two-collums-one p-3 w-[250px] mx-auto h-[308px] sm:w-[358px] sm:h-[440px] md:w-[337px] md:h-[414px] lg:w-[464px] lg:h-[506px] xl:w-[592px] xl:h-[645px] 2xl:w-[607px] 2xl:h-[662px] flex justify-around items-center flex-col border">     
+            <h3 class="text-2xl text-center font-semibold">In Aid of War Child</h3>
+            <p class="text-base text-center font-normal">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aut?
+            </p>
+            <button>
+                <a href="#">Shop Collabs</a>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .two-collums-all{
+        background: {{ section.settings.two_collums_color_background_id }};
+    }
+</style>
+
+{% for blockcss in section.blocks %}
+    {% case blockcss.title %}
+        {% when "collum_one" %}
+            {% assign allowImagePicker = blockcss.settings.two_collums_image_picker_one_id %}
+            {{ allowImagePicker }}
+            {% assign allowBackgroundPicker = blockcss.settings.two_collums_background_picker_one_id %}
+            {% assign imagePicker = blockcss.settings.two_collums_first_image_id %}
+            {% assign backgroundPicker = blockcss.settings.two_collums_first_image_id %}
+            {% if allowImagePicker == true %}
+                <style>
+                    /* two_collums_image_picker_one_id */
+                    /* two_collums_first_image_id */
+                    /* two_collums_background_picker_one_id */
+                    /* two_collums_first_color_background_id */
+                    
+                    .two-collums-one{
+                        background: url("{% if blockcss.settings.two_collums_first_image_id %} {{ blockcss.settings.two_collums_first_image_id | asset_url }}"); {% else %} background: url("{{ 'collection-1.svg' |  asset_url }}"); {% endif %}
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 100%;
+                        height: 100%;        
+                    }
+                </style>
+                {% assign allowBackgroundPicker = false %}
+            {% endif %}
+            {% if allowBackgroundPicker == true %}
+                <style>
+                    /* two_collums_image_picker_one_id */
+                    /* two_collums_first_image_id */
+                    /* two_collums_background_picker_one_id */
+                    /* two_collums_first_color_background_id */
+                    
+                    .two-collums-one{
+                        background: url("{% if blockcss.settings.two_collums_first_image_id %} {{ blockcss.settings.two_collums_first_image_id | asset_url }}"); {% else %} background: url("{{ 'collection-1.svg' |  asset_url }}"); {% endif %};
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 100%;
+                        height: 100%;        
+                    }
+                </style>
+                {% assign allowImagePicker = false %}
+            {% endif %}            
+        {% else %}
+            
+    {% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+    "name": "Two collums",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Two Collums Section",
+            "info": "Add background color Here"
+        },
+        {
+            "type": "color_background",
+            "id": "two_collums_color_background_id",
+            "label": "Add Section Background Color",
+            "default": "linear-gradient(#ffffff, #000000)"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Collum One",
+            "type": "collum_one",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Add Information on the collums",
+                    "info": "Choose between adding an image or background color"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "two_collums_image_picker_one_id",
+                    "label": "Allow Image Picking?",
+                    "default": true
+                },
+                {
+                    "type": "image_picker",
+                    "id": "two_collums_first_image_id",
+                    "label": "Add First Image"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "two_collums_background_picker_one_id",
+                    "label": "Allow Background Color?",
+                    "default": false
+                },
+                {
+                    "type": "color_background",
+                    "id": "two_collums_first_color_background_id",
+                    "label": "Add Background Color"
+                },
+                {
+                    "type": "header",
+                    "content": "Title and Description and Button",
+                    "info": "Add Title, Description, button text and link button"
+                },
+                {
+                    "type": "text",
+                    "id": "collum_one_first_text_id",
+                    "label": "Title",
+                    "default": "First Collum"
+                },
+                {
+                    "type": "color",
+                    "id": "collum_one_first_text_color_id",
+                    "label": "Title Color",
+                    "default": "#000000"
+                }, 
+                {
+                    "type": "inline_richtext",
+                    "id": "collum_one_first_description_id",
+                    "label": "Description",
+                    "default": "<span>Lorem lorem lorem lorem lren lnre</span>"
+                },
+                {
+                    "type": "color",
+                    "id": "collum_one_first_description_color_id",
+                    "label": "Description"
+                },
+                {
+                    "type": "text",
+                    "id": "collum_one_first_button_text_id",
+                    "label": "First Button",
+                    "default": "Shop Now"
+                },
+                {
+                    "type": "color",
+                    "id": "collum_one_first_button_text_bg_id",
+                    "label": "First Button Background Color",
+                    "default": "#000000"
+                },
+                {
+                    "type": "color",
+                    "id": "collum_one_first_button_text_color_id",
+                    "label": "First Button Text Color",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "collum_one_first_button_border_enable_id",
+                    "label": "Enable Border First Button?",
+                    "default": false
+                },
+                {
+
+                    "type": "color",
+                    "id": "collum_one_first_button_border_color_id",
+                    "label": "Choose First Button Border Color",
+                    "default": "#ffffff"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "two_collums_first_checkbox_id",
+                    "label": "Add Border Raduis?",
+                    "default": false
+                },
+                {
+                    "type": "select",
+                    "id": "two_collums_first_select_id",
+                    "label": "Choose Border Radius",
+                    "options": [
+                        {
+                            "value": "sm",
+                            "label": "Shadow Small"
+                        },
+                        {
+                            "value": "md",
+                            "label": "Shadow Medium"
+                        },
+                        {
+                            "value": "lg",
+                            "label": "Shadow Large"
+                        },
+                        {
+                            "value": "xl",
+                            "label": "Shadow Extra Large"
+                        },
+                        {
+                            "value": "2xl",
+                            "label": "Shadow 2x Extra Large"
+                        }
+                    ],
+                    "default": "sm"
+                }
+            ]
+            
+        }
+       
+    ],
+    "presets": [
+        {
+            "name": "Two Collums", 
+            "blocks": [
+                {
+                    "type":"collum_one"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
