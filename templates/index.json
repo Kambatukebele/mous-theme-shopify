@@ -45,7 +45,7 @@
         "buttons_jK38nk"
       ],
       "settings": {
-        "header_image_picker_id": "shopify://shop_images/header.png",
+        "header_image_picker_id": "shopify:\/\/shop_images\/header.png",
         "header_image_picker_height_id": "70vh",
         "header_box_color_enable_id": true,
         "header_box_color_id": "#ffffff",
@@ -77,7 +77,7 @@
       "type": "two-collums",
       "settings": {
         "two_collums_color_background_id": "",
-        "two_collums_first_image_id": "shopify://shop_images/Solovey_Secondary_Homepage_Asset_3_Desktop_1_624x_42679f98-824c-42e5-b26b-17a48319704d.webp",
+        "two_collums_first_image_id": "shopify:\/\/shop_images\/Solovey_Secondary_Homepage_Asset_3_Desktop_1_624x_42679f98-824c-42e5-b26b-17a48319704d.webp",
         "two_collums_first_title_id": "Aid For War Child",
         "two_collums_first_title_color_id": "#ffffff",
         "two_collums_first_description_id": "Case designs made with Ukrainian artists. 50% of profits go to War Child.",
@@ -85,7 +85,7 @@
         "two_collums_first_btntext_id": "Show Collabs",
         "two_collums_first_btntext_color_id": "#ffffff",
         "two_collums_first_btntext_bg_id": "#00bec8",
-        "two_collums_second_image_id": "shopify://shop_images/Backpack_Secondary_Homepage_Option_1_Desktop_624x_6b4448ef-7dc4-4143-8dc9-f03eb3acc277.webp",
+        "two_collums_second_image_id": "shopify:\/\/shop_images\/Backpack_Secondary_Homepage_Option_1_Desktop_624x_6b4448ef-7dc4-4143-8dc9-f03eb3acc277.webp",
         "two_collums_second_title_id": "For every commute",
         "two_collums_second_title_color_id": "#ffffff",
         "two_collums_second_description_id": "Our water-resistant and impact-absorbing backpacks have you covered for every journey.",
@@ -95,11 +95,17 @@
         "two_collums_second_btntext_bg_id": "#00bec8",
         "two_collums_rounded_id": "2xl"
       }
+    },
+    "three_collums_CpyMpz": {
+      "type": "three-collums",
+      "settings": {
+      }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
-    "two_collums_zJjDeW"
+    "two_collums_zJjDeW",
+    "three_collums_CpyMpz"
   ]
 }
