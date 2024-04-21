@@ -95,11 +95,17 @@
         "two_collums_second_btntext_bg_id": "#00bec8",
         "two_collums_rounded_id": "2xl"
       }
+    },
+    "three_collums_CpyMpz": {
+      "type": "three-collums",
+      "settings": {
+      }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
-    "two_collums_zJjDeW"
+    "two_collums_zJjDeW",
+    "three_collums_CpyMpz"
   ]
 }
