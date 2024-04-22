@@ -1,70 +1,279 @@
 <section class="max-w-full h-[570px] lg:h-[700px] overflow-x-auto flex justify-end items-center">
-    <div class="h-[556px] flex flex-nowrap w-[90%] mx-auto sm:w-[570px]  md:w-[700px] lg:w-[990px] lg:h-[680px] xl:w-[1200px] 2xl:w-[1480px]">       
-        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px]  rounded-2xl flex justify-around items-center flex-col mr-5">
-            <div class="w-[206px] h-[278px] block md:w-full lg:h-[400px]">
-                <img class="block w-full h-full object-cover object-center" src="{{ "collection-2.svg" |  asset_url }}" alt="">
+    <div class="h-[556px] flex flex-nowrap w-[90%] mx-auto sm:w-[570px]  md:w-[700px] lg:w-[990px] lg:h-[680px] xl:w-[1200px] 2xl:w-[1480px]">   
+        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px] flex justify-around items-center flex-col mr-5 rounded-2xl">
+            <div class="w-[206px] h-[278px]  block md:w-full lg:h-[400px]">                
+                <img class="block w-full h-full object-cover object-center rounded-t-2xl" src="{%- if section.settings.three_collums_image_one_id -%} {{ section.settings.three_collums_image_one_id | image_url: width:1500 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
             </div>
-            <div class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] lg:justify-end border border-b-0 border-l-0 border-r-0">
-                <h3 class="text-xl font-semibold text-center text-black my-1">
-                    Made for Apple
+            <div style="background-color: {{ section.settings.three_collums_color_background_one_id }};" class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] border border-b-0 border-l-0 border-r-0 rounded-b-2xl">
+                <h3 style="color: {{ section.settings.three_collums_text_one_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.three_collums_text_one_id }}
                 </h3>
-                <p class="text-base font-normal text-center text-black mb-1 px-1">
-                    Our most advanced wireless charging ecosystem yet, combining our own magnetic expertise with official Apple technology.
+                <p style="color: {{ section.settings.three_collums_description_color_one_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.three_collums_description_one_id }}
                 </p>
-                <button class="bg-blue-800 text-white border py-2 px-4 rounded-lg mb-1">
+                <button style="background-color: {{ section.settings.three_collums_first_button_bg_color_id }}; color:{{ section.settings.three_collums_first_button_text_color_id }}; {%- if section.settings.three_collums_first_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.three_collums_first_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
                     <a href="#">
-                        Enhance Your Phone
+                       {{ section.settings.three_collums_first_button_text_id }}
                     </a>
                 </button>
             </div>
         </div>
-        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px]  rounded-2xl flex justify-around items-center flex-col mr-5">
-            <div class="w-[206px] h-[278px] block md:w-full lg:h-[400px]">
-                <img class="block w-full h-full object-cover object-center" src="{{ "collection-2.svg" |  asset_url }}" alt="">
+        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px] flex justify-around items-center flex-col mr-5 rounded-2xl">
+            <div class="w-[206px] h-[278px]  block md:w-full lg:h-[400px]">                
+                <img class="block w-full h-full object-cover object-center rounded-t-2xl" src="{%- if section.settings.three_collums_image_two_id -%} {{ section.settings.three_collums_image_two_id | image_url: width:1500 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
             </div>
-            <div class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] lg:justify-end border border-b-0 border-l-0 border-r-0">
-                <h3 class="text-xl font-semibold text-center text-black my-1">
-                    Made for Apple
+            <div style="background-color: {{ section.settings.three_collums_color_background_two_id }};" class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] border border-b-0 border-l-0 border-r-0 rounded-b-2xl">
+                <h3 style="color: {{ section.settings.three_collums_text_two_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.three_collums_text_two_id }}
                 </h3>
-                <p class="text-base font-normal text-center text-black mb-1 px-1">
-                    Our most advanced wireless charging ecosystem yet, combining our own magnetic expertise with official Apple technology.
+                <p style="color: {{ section.settings.three_collums_description_color_two_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.three_collums_description_two_id }}
                 </p>
-                <button class="bg-blue-800 text-white border py-2 px-4 rounded-lg mb-1">
+                <button style="background-color: {{ section.settings.three_collums_second_button_bg_color_id }}; color:{{ section.settings.three_collums_second_button_text_color_id }}; {%- if section.settings.three_collums_second_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.three_collums_second_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
                     <a href="#">
-                        Enhance Your Phone
+                       {{ section.settings.three_collums_second_button_text_id }}
                     </a>
                 </button>
             </div>
         </div>
-        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px]  rounded-2xl flex justify-around items-center flex-col mr-5">
-            <div class="w-[206px] h-[278px] block md:w-full lg:h-[400px]">
-                <img class="block w-full h-full object-cover object-center" src="{{ "collection-2.svg" |  asset_url }}" alt="">
+        <div class="h-[556px] w-[206px] md:w-[233px] lg:w-[330px] xl:w-[390px] border  2xl:w-[490px] lg:h-[680px] flex justify-around items-center flex-col mr-5 rounded-2xl">
+            <div class="w-[206px] h-[278px]  block md:w-full lg:h-[400px]">                
+                <img class="block w-full h-full object-cover object-center rounded-t-2xl" src="{%- if section.settings.three_collums_image_three_id -%} {{ section.settings.three_collums_image_three_id | image_url: width:1500 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
             </div>
-            <div class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] lg:justify-end border border-b-0 border-l-0 border-r-0">
-                <h3 class="text-xl font-semibold text-center text-black my-1">
-                    Made for Apple
+            <div style="background-color: {{ section.settings.three_collums_color_background_three_id }};" class="w-[206px] h-[278px] p-2 flex justify-center items-center flex-col md:w-full lg:h-[280px] border border-b-0 border-l-0 border-r-0 rounded-b-2xl">
+                <h3 style="color: {{ section.settings.three_collums_text_three_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.three_collums_text_three_id }}
                 </h3>
-                <p class="text-base font-normal text-center text-black mb-1 px-1">
-                    Our most advanced wireless charging ecosystem yet, combining our own magnetic expertise with official Apple technology.
+                <p style="color: {{ section.settings.three_collums_description_color_three_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.three_collums_description_three_id }}
                 </p>
-                <button class="bg-blue-800 text-white border py-2 px-4 rounded-lg mb-1">
+                <button style="background-color: {{ section.settings.three_collums_third_button_bg_color_id }}; color:{{ section.settings.three_collums_third_button_text_color_id }}; {%- if section.settings.three_collums_third_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.three_collums_third_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
                     <a href="#">
-                        Enhance Your Phone
+                       {{ section.settings.three_collums_third_button_text_id }}
                     </a>
                 </button>
             </div>
         </div>
-        
-       
     </div>
 </section>
-
-
 {% schema %}
 {
     "name": "Three Collums",
     "settings": [
-        
+        {
+            "type": "image_picker",
+            "id": "three_collums_image_one_id",
+            "label": "Pick the First Image"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_color_background_one_id",
+            "label": "Choose your Box Color",
+            "default": "#D3D3D3"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_text_one_id",
+            "label": "Write Your First Title",
+            "default": "First Title"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_text_one_color_id",
+            "label": "Choose Your Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "three_collums_description_one_id",
+            "label": "Write Your First Description",
+            "default": "<span>This is Your first Description. take case of it!</span>"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_description_color_one_id",
+            "label": "Choose Your First Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_first_button_text_id",
+            "label": "Write Fist Button Title",
+            "default": "Show now"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_first_button_bg_color_id",
+            "label": "Pick Your First Button Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_first_button_text_color_id",
+            "label": "Pick Your Fist Button Text Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "checkbox",
+            "id": "three_collums_first_button_enable_border_color_id",
+            "label": "Enable Border?",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "three_collums_first_button_border_color_id",
+            "label": "Choose First Button border Color",
+            "default": "#000000",
+            "info": "This option works only if you checked the enable border."
+        },
+        {
+            "type": "header",
+            "content": "Second Box",
+            "info": "Here goes the second box"
+        },
+        {
+            "type": "image_picker",
+            "id": "three_collums_image_two_id",
+            "label": "Pick the First Image"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_color_background_two_id",
+            "label": "Choose your Box Color",
+            "default": "#D3D3D3"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_text_two_id",
+            "label": "Write Your First Title",
+            "default": "First Title"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_text_two_color_id",
+            "label": "Choose Your Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "three_collums_description_two_id",
+            "label": "Write Your First Description",
+            "default": "<span>This is Your first Description. take case of it!</span>"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_description_color_two_id",
+            "label": "Choose Your First Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_second_button_text_id",
+            "label": "Write Fist Button Title",
+            "default": "Show now"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_second_button_bg_color_id",
+            "label": "Pick Your second Button Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_second_button_text_color_id",
+            "label": "Pick Your Fist Button Text Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "checkbox",
+            "id": "three_collums_second_button_enable_border_color_id",
+            "label": "Enable Border?",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "three_collums_second_button_border_color_id",
+            "label": "Choose second Button border Color",
+            "default": "#000000",
+            "info": "This option works only if you checked the enable border."
+        },
+        {
+            "type": "header",
+            "content": "Third Box",
+            "info": "Here goes the Third box"
+        },
+        {
+            "type": "image_picker",
+            "id": "three_collums_image_three_id",
+            "label": "Pick the First Image"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_color_background_three_id",
+            "label": "Choose your Box Color",
+            "default": "#D3D3D3"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_text_three_id",
+            "label": "Write Your First Title",
+            "default": "First Title"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_text_three_color_id",
+            "label": "Choose Your Title Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "three_collums_description_three_id",
+            "label": "Write Your First Description",
+            "default": "<span>This is Your first Description. take case of it!</span>"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_description_color_three_id",
+            "label": "Choose Your First Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "text",
+            "id": "three_collums_third_button_text_id",
+            "label": "Write Fist Button Title",
+            "default": "Show now"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_third_button_bg_color_id",
+            "label": "Pick Your third Button Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "three_collums_third_button_text_color_id",
+            "label": "Pick Your Fist Button Text Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "checkbox",
+            "id": "three_collums_third_button_enable_border_color_id",
+            "label": "Enable Border?",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "three_collums_third_button_border_color_id",
+            "label": "Choose third Button border Color",
+            "default": "#000000",
+            "info": "This option works only if you checked the enable border."
+        }
     ],
     "presets": [
         {
