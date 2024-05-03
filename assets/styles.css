@@ -860,6 +860,15 @@ video {
 .h-svh {
   height: 100svh;
 }
+.h-\[484px\] {
+  height: 484px;
+}
+.h-\[206px\] {
+  height: 206px;
+}
+.max-h-\[206px\] {
+  max-height: 206px;
+}
 .min-h-\[250px\] {
   min-height: 250px;
 }
