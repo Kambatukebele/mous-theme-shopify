@@ -137,6 +137,12 @@
     "favourites_product_Y9jrBG": {
       "type": "favourites-product",
       "settings": {
+        "product_list": [
+          "extreme-commuter-backpack",
+          "limitless-5-0-magsafe®-compatible-forest-green-phone-case",
+          "magsafe®-compatible-car-vent-mount",
+          "walnut-4-in-1-fast-charging-set"
+        ]
       }
     }
   },
