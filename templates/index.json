@@ -133,12 +133,18 @@
         "three_collums_third_button_enable_border_color_id": false,
         "three_collums_third_button_border_color_id": "#000000"
       }
+    },
+    "favourites_product_Y9jrBG": {
+      "type": "favourites-product",
+      "settings": {
+      }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
     "two_collums_zJjDeW",
-    "three_collums_CpyMpz"
+    "three_collums_CpyMpz",
+    "favourites_product_Y9jrBG"
   ]
 }
