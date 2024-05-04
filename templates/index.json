@@ -144,6 +144,11 @@
           "walnut-4-in-1-fast-charging-set"
         ]
       }
+    },
+    "choose_zxtcKT": {
+      "type": "choose",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -151,6 +156,7 @@
     "featured_collection",
     "two_collums_zJjDeW",
     "three_collums_CpyMpz",
-    "favourites_product_Y9jrBG"
+    "favourites_product_Y9jrBG",
+    "choose_zxtcKT"
   ]
 }
