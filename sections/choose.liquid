@@ -1,0 +1,52 @@
+<section class="container mx-auto h-fit mb-10 lg:flex lg:justify-between lg:items-start xl:justify-center xl:gap-16">
+    <div class="hidden lg:block lg:w-[400px] lg:h-[600px] lg:rounded-2xl xl:w-[600px]">
+        <img class="w-full h-full object-cover object-center" src="{{ 'collection-1.svg' |  asset_url  }}" alt="">
+    </div>
+    <div class="w-full flex justify-center items-center flex-col gap-4 lg:w-[500px] ">
+        <h3 class="text-2xl font-semibold text-black w-full  my-4 lg:text-start lg:text-4xl lg:my-0">Why Choose Mous</h3>
+        <div class="flex justify-center items-center flex-col gap-4 sm:flex-row sm:flex-wrap sm:w-full">
+            <div class="flex justify-center items-center gap-4 px-2  rounded-2xl flex-col py-5 mx-4 shadow-md sm:mx-0 sm:max-w-[290px] md:max-w-[350px] lg:max-w-[225px] lg:mx-0 lg:justify-start">
+                {% render 'phone-icon' %}
+                <h4 class="text-xl black font-medium text-center">Extreme testing</h4>
+                <p class="text-center text-gray-500">
+                    We test our products to the absolute max so they always perform as promised.
+                </p>
+            </div>
+            <div class="flex justify-center items-center gap-4 px-2  rounded-2xl flex-col py-5 mx-4 shadow-md sm:mx-0 sm:max-w-[290px] md:max-w-[350px] lg:max-w-[225px] lg:mx-0 lg:justify-start">
+                {% render 'phone-icon' %}
+                <h4 class="text-xl black font-medium text-center">Extreme testing</h4>
+                <p class="text-center text-gray-500">
+                    We test our products to the absolute max so they always perform as promised.
+                </p>
+            </div>
+            <div class="flex justify-center items-center gap-4 px-2  rounded-2xl flex-col py-5 mx-4 shadow-md sm:mx-0 sm:max-w-[290px] md:max-w-[350px] lg:max-w-[225px] lg:mx-0 lg:justify-start">
+                {% render 'phone-icon' %}
+                <h4 class="text-xl black font-medium text-center">Extreme testing</h4>
+                <p class="text-center text-gray-500">
+                    We test our products to the absolute max so they always perform as promised.
+                </p>
+            </div>
+            <div class="flex justify-center items-center gap-4 px-2  rounded-2xl flex-col py-5 mx-4 shadow-md sm:mx-0 sm:max-w-[290px] md:max-w-[350px] lg:max-w-[225px] lg:mx-0 lg:justify-start">
+                {% render 'phone-icon' %}
+                <h4 class="text-xl black font-medium text-center">Extreme testing</h4>
+                <p class="text-center text-gray-500">
+                    We test our products to the absolute max so they always perform as promised.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Choose",
+    "settings": [
+        
+    ],
+    "presets": [
+        {
+            "name": "Choose"
+        }
+    ]
+}
+{% endschema %}
