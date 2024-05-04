@@ -1,79 +1,43 @@
-<section  class="container mx-auto px-4 my-5">
-    <div class="flex justify-between items-center mb-5">
+<section class="container mx-auto px-4  mb-5 mt-5">
+    <div class="lg:flex lg:justify-between lg:items-center">
         <div class="h-[38px]">
             <h3 class="text-2xl text-black font-semibold">Our Favourites</h3>
         </div>
-        <div class="hidden">
-            <span class="material-symbols-outlined">
+        <div class="hidden lg:flex lg:justify-center md:items-center gap-3">
+            <span class="material-symbols-outlined w-8 h-8 rounded-full bg-gray-300 text-gray-500 flex justify-center items-center cursor-pointer">
                 arrow_back
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined w-8 h-8 rounded-full bg-gray-300 text-gray-500 flex justify-center items-center cursor-pointer">
                 arrow_forward
             </span>
         </div>
     </div>
+ </section>
+<section  class="container mx-auto px-4 my-5">
     <div class="w-full flex justify-start items-center overflow-x-auto">
         {% comment %} Product go here {% endcomment %}
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
-        <div class="border bg-gray-50 mr-4  min-w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl">
-            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-            <h3 class="text-center text-lg font-semibold text-black">Extreme Commuter Backpack</h3>
-            <p class="text-center text-base font-normal text-gray-500">From $229.99</p>
-        </div>
+        {% for product in section.settings.product_list %}            
+            <a href="{{ product.url }}" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl xl:w-[300px] shadow-md">
+                {% comment %} <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product"> {% endcomment %}
+                <div class="w-[153px] h-[153px] xl:w-[250px]">
+                    <img class="w-full h-fit object-cover object-center" src="{{ product.featured_image |  image_url }}" alt="product">
+                </div>
+                <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
+                    <h3 class="text-center text-lg font-semibold text-black">
+                        {{ product.title }}
+                    </h3>
+                    <div>
+                        <p class="text-center text-base font-normal text-gray-300 line-through">
+                            {{ product.compare_at_price |  money }}
+                        </p>
+                        <p class="text-center text-base font-normal text-black">
+                            From {{ product.price |  money }}
+                        </p>
+                    </div>
+                    
+                </div>
+            </a>
+        {% endfor %}
     </div>
 </section>
 
@@ -81,7 +45,12 @@
 {
     "name": "Favourites Product",
     "settings": [
-        
+        {
+            "type": "product_list",
+            "id": "product_list",
+            "label": "Products",
+            "limit": 12
+        }
     ],
     "presets": [
         {
