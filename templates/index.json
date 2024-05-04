@@ -148,6 +148,8 @@
     "choose_zxtcKT": {
       "type": "choose",
       "settings": {
+        "choose_image_id": "shopify:\/\/shop_images\/Why_Mous_516x_a3f1dd5e-4e00-45d1-b0d8-a0bed325f501.webp",
+        "choose_title_id": "Why Choose Mous"
       }
     }
   },

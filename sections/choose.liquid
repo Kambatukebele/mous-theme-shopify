@@ -1,9 +1,15 @@
 <section class="container mx-auto h-fit mb-10 lg:flex lg:justify-between lg:items-start xl:justify-center xl:gap-16">
     <div class="hidden lg:block lg:w-[400px] lg:h-[600px] lg:rounded-2xl xl:w-[600px]">
-        <img class="w-full h-full object-cover object-center" src="{{ 'collection-1.svg' |  asset_url  }}" alt="">
+        <img class="w-full h-full object-cover object-center lg:rounded-2xl" src="{% if section.settings.choose_image_id %}
+            {{ section.settings.choose_image_id |  image_url: width:full  }}
+            {% else %}
+            {{ 'collection-1.svg' |  asset_url  }}
+        {% endif %}" alt="">
     </div>
     <div class="w-full flex justify-center items-center flex-col gap-4 lg:w-[500px] ">
-        <h3 class="text-2xl font-semibold text-black w-full  my-4 lg:text-start lg:text-4xl lg:my-0">Why Choose Mous</h3>
+        <h3 class="text-2xl font-semibold text-black w-full  my-4 lg:text-start lg:text-4xl lg:my-0">
+            {{ section.settings.choose_title_id }}
+        </h3>
         <div class="flex justify-center items-center flex-col gap-4 sm:flex-row sm:flex-wrap sm:w-full">
             <div class="flex justify-center items-center gap-4 px-2  rounded-2xl flex-col py-5 mx-4 shadow-md sm:mx-0 sm:max-w-[290px] md:max-w-[350px] lg:max-w-[225px] lg:mx-0 lg:justify-start">
                 {% render 'phone-icon' %}
@@ -41,7 +47,17 @@
 {
     "name": "Choose",
     "settings": [
-        
+        {
+            "type": "image_picker",
+            "id": "choose_image_id",
+            "label": "Choose the Image"
+        },
+        {
+            "type": "text",
+            "id": "choose_title_id",
+            "label": "Choose the Title",
+            "default": "Why Us"
+        }
     ],
     "presets": [
         {
