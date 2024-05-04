@@ -16,28 +16,51 @@
 <section  class="container mx-auto px-4 my-5">
     <div class="w-full flex justify-start items-center overflow-x-auto">
         {% comment %} Product go here {% endcomment %}
-        {% for product in section.settings.product_list %}            
-            <a href="{{ product.url }}" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl xl:w-[300px] shadow-md">
-                {% comment %} <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product"> {% endcomment %}
-                <div class="w-[153px] h-[153px] xl:w-[250px]">
-                    <img class="w-full h-fit object-cover object-center" src="{{ product.featured_image |  image_url }}" alt="product">
-                </div>
-                <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
-                    <h3 class="text-center text-lg font-semibold text-black">
-                        {{ product.title }}
-                    </h3>
-                    <div>
-                        <p class="text-center text-base font-normal text-gray-300 line-through">
-                            {{ product.compare_at_price |  money }}
-                        </p>
-                        <p class="text-center text-base font-normal text-black">
-                            From {{ product.price |  money }}
-                        </p>
+        {% if section.settings.product_list != blank %}
+            {% for product in section.settings.product_list %}            
+                <a href="{{ product.url }}" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl lg:hover:shadow-xl xl:w-[300px]">
+                    <div class="w-[153px] h-[153px] xl:w-[250px]">                   
+                        <img class="w-full h-fit object-cover object-center" src="{{ product.featured_image |  image_url }}" alt="product">
                     </div>
-                    
-                </div>
-            </a>
-        {% endfor %}
+                    <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
+                        <h3 class="text-center text-lg font-semibold text-black">
+                            {{ product.title }}
+                        </h3>
+                        <div>
+                            <p class="text-center text-base font-normal text-gray-300 line-through">
+                                {{ product.compare_at_price |  money }}
+                            </p>
+                            <p class="text-center text-base font-normal text-black">
+                                From {{ product.price |  money }}
+                            </p>
+                        </div>
+                        
+                    </div>
+                </a>
+            {% endfor %}
+            {% else %}
+                {% for item in (1..12) %}
+                    <a href="{{ product.url }}" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl lg:hover:shadow-xl xl:w-[300px]">
+                        <div class="w-[153px] h-[153px] xl:w-[250px]">          
+                            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
+                        </div>
+                        <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
+                            <h3 class="text-center text-lg font-semibold text-black">
+                                Product Here
+                            </h3>
+                            <div>
+                                <p class="text-center text-base font-normal text-gray-300 line-through">
+                                    $999
+                                </p>
+                                <p class="text-center text-base font-normal text-black">
+                                    From $878
+                                </p>
+                            </div>
+                            
+                        </div>
+                    </a>                   
+                {% endfor %}
+        {% endif %}
     </div>
 </section>
 
@@ -45,6 +68,11 @@
 {
     "name": "Favourites Product",
     "settings": [
+        {
+            "type": "header",
+            "content": "Add Your Product List.",
+            "info": "The limit is fixed to 12 products"
+        },
         {
             "type": "product_list",
             "id": "product_list",
