@@ -1,4 +1,4 @@
-<footer class="w-full h-fit">
+<footer style="background-color: {{ section.settings.footer_background_color }};" class="w-full h-fit">
   <div class="container mx-auto h-full py-10">
       {% comment %} footer upper {% endcomment %}
       <div class="block h-fit sm:flex sm:justify-center sm:items-start sm:flex-wrap sm:w-full sm:gap-2 lg:gap-0 lg:justify-between">
@@ -23,7 +23,7 @@
                 </p>
                 <div class="w-[300px] h-[78px] flex justify-center items-center sm:w-[500px] lg:w-[300px]">
                   <input class="w-[190px] py-2 border bg-white px-2 rounded-l-lg sm:w-[390px] lg:w-[190px]" placeholder="Email" type="email" name="email">
-                  <button class="w-[100px] bg-blue-500 text-white py-2 rounded-r-lg ">Sign Up</button>
+                  <button style="background-color: {{ footer_block.settings.footer_form_button_background_color }}; color:  {{ footer_block.settings.footer_form_button_color }} " class="w-[100px] text-white py-2 rounded-r-lg ">Sign Up</button>
                 </div>
               </div>
               {% when 'footer_nav' %}
@@ -98,7 +98,7 @@
       {% comment %} footer middle {% endcomment %}
       <div class="w-full h-fit flex justify-center items-center flex-col-reverse">
         <div class="">
-          <span class="block px-4 text-black font-semibold text-center mb-5">{{ now | date: "%Y" }} {{ section.settings.text_footer_subbottom }}. All right reserved.</span>
+          <span class="block px-4 text-black font-normal text-center mb-5">{{ now | date: "%Y" }} {{ section.settings.text_footer_subbottom }}. All right reserved.</span>
           <div class="sm:flex sm:justify-center sm:items-center sm:gap-5">
             <a class="block text-black font-normal text-center mb-3" href="{{ subbottom_footer_title_one_url_id }}">
               {{ section.settings.subbottom_footer_title_one_id }}
@@ -151,6 +151,16 @@
 {
   "name": "t:sections.footer.name",
   "settings": [
+    {
+      "type": "header",
+      "content": "FOOTER BACKGROUN COLOR"
+    },
+    {
+      "type": "color",
+      "id": "footer_background_color",
+      "label": "Add Footer Background Color",
+      "default": "#ffffff"
+    },
     {
       "type": "header",
       "content": "PRIVACY POLICY, TERMS ETC"
@@ -217,6 +227,18 @@
         "label": "Add Your Description",
         "placeholder": "Your Description here",
         "default": "Lorem lorem lorem lorem"
+      },
+      {
+        "type": "color",
+        "id": "footer_form_button_background_color",
+        "label": "Add Form Button Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "footer_form_button_color",
+        "label": "Add Form Button Color",
+        "default": "#ffffff"
       }
     ]
    },
