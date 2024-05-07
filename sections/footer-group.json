@@ -5,29 +5,144 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "second_block_igUa67": {
-          "type": "second_block",
+        "form_info_7QmAP6": {
+          "type": "form_info",
           "settings": {
-            "second_block_text_id": "Title",
-            "second_block_submenu_title_one_id": "Lorem 1",
-            "second_block_submenu_url_one_id": "",
-            "second_block_submenu_title_two_id": "Lorem 2",
-            "second_block_submenu_url_two_id": "",
-            "second_block_submenu_title_three_id": "Lorem 3",
-            "second_block_submenu_url_three_id": "",
-            "second_block_submenu_title_four_id": "Lorem 4",
-            "second_block_submenu_url_four_id": "",
-            "second_block_submenu_title_five_id": "Lorem 5",
-            "second_block_submenu_url_five_id": ""
+            "footer_text": "Join our global community",
+            "footer_description": "Keep up-to-date with our latest product launches, epic stunts and special offers.",
+            "footer_form_button_background_color": "#00bec8",
+            "footer_form_button_color": "#ffffff"
+          }
+        },
+        "footer_nav_YYnfbt": {
+          "type": "footer_nav",
+          "settings": {
+            "footer_nav_heading": "about us",
+            "footer_sub_menu_one_id": "Our Story",
+            "footer_sub_menu_url_one_id": "",
+            "footer_sub_menu_two_id": "Our Blog",
+            "footer_sub_menu_url_two_id": "",
+            "footer_sub_menu_three_id": "AiroShock™",
+            "footer_sub_menu_url_three_id": "",
+            "footer_sub_menu_four_id": "AiroFoam™",
+            "footer_sub_menu_url_four_id": "",
+            "footer_sub_menu_five_id": "Mous + Magnets",
+            "footer_sub_menu_url_five_id": ""
+          }
+        },
+        "footer_nav_QVNMXw": {
+          "type": "footer_nav",
+          "settings": {
+            "footer_nav_heading": "NEED HELP?",
+            "footer_sub_menu_one_id": "Contact and FAQs",
+            "footer_sub_menu_url_one_id": "",
+            "footer_sub_menu_two_id": "Shipping and Returns",
+            "footer_sub_menu_url_two_id": "",
+            "footer_sub_menu_three_id": "Reviews",
+            "footer_sub_menu_url_three_id": "",
+            "footer_sub_menu_four_id": "Warranty",
+            "footer_sub_menu_url_four_id": "",
+            "footer_sub_menu_five_id": "",
+            "footer_sub_menu_url_five_id": ""
+          }
+        },
+        "footer_nav_bCPpFw": {
+          "type": "footer_nav",
+          "settings": {
+            "footer_nav_heading": "EXTRAS",
+            "footer_sub_menu_one_id": "E-Gift Cards",
+            "footer_sub_menu_url_one_id": "",
+            "footer_sub_menu_two_id": "Product Tutorials",
+            "footer_sub_menu_url_two_id": "",
+            "footer_sub_menu_three_id": "Refer a friend",
+            "footer_sub_menu_url_three_id": "",
+            "footer_sub_menu_four_id": "Student Discount",
+            "footer_sub_menu_url_four_id": "",
+            "footer_sub_menu_five_id": "Sitemap",
+            "footer_sub_menu_url_five_id": ""
+          }
+        },
+        "footer_nav_cqdGFG": {
+          "type": "footer_nav",
+          "settings": {
+            "footer_nav_heading": "IPHONE CASES",
+            "footer_sub_menu_one_id": "MagSafe® Compatible",
+            "footer_sub_menu_url_one_id": "",
+            "footer_sub_menu_two_id": "iPhone 15 Cases",
+            "footer_sub_menu_url_two_id": "",
+            "footer_sub_menu_three_id": "iPhone 14 Cases",
+            "footer_sub_menu_url_three_id": "",
+            "footer_sub_menu_four_id": "iPhone 13 Cases",
+            "footer_sub_menu_url_four_id": "",
+            "footer_sub_menu_five_id": "",
+            "footer_sub_menu_url_five_id": ""
+          }
+        },
+        "footer_icons_M9rpyc": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "facebook",
+            "footer_icons_id": ""
+          }
+        },
+        "footer_icons_gGjPrj": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "twitter",
+            "footer_icons_id": ""
+          }
+        },
+        "footer_icons_V9bYcA": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "instagram",
+            "footer_icons_id": ""
+          }
+        },
+        "footer_icons_jwtpKG": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "tiktok",
+            "footer_icons_id": ""
+          }
+        },
+        "footer_icons_PGX3dd": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "pinterest",
+            "footer_icons_id": ""
+          }
+        },
+        "footer_icons_cWfUDb": {
+          "type": "footer_icons",
+          "settings": {
+            "footer_icons_text_id": "youtube",
+            "footer_icons_id": ""
           }
         }
       },
       "block_order": [
-        "second_block_igUa67"
+        "form_info_7QmAP6",
+        "footer_nav_YYnfbt",
+        "footer_nav_QVNMXw",
+        "footer_nav_bCPpFw",
+        "footer_nav_cqdGFG",
+        "footer_icons_M9rpyc",
+        "footer_icons_gGjPrj",
+        "footer_icons_V9bYcA",
+        "footer_icons_jwtpKG",
+        "footer_icons_PGX3dd",
+        "footer_icons_cWfUDb"
       ],
       "settings": {
-        "footer_text": "Join us",
-        "footer_description": "Lorem lorem lorem lorem"
+        "footer_background_color": "#eaeaea",
+        "text_footer_subbottom": "2024 Your Company Name",
+        "subbottom_footer_title_one_id": "Privacy Policy",
+        "subbottom_footer_title_one_url_id": "",
+        "subbottom_footer_title_two_id": "Terms",
+        "subbottom_footer_title_two_url_id": "",
+        "subbottom_footer_title_three_id": "*Promotion T&Cs",
+        "subbottom_footer_title_three_url_id": ""
       }
     }
   },
