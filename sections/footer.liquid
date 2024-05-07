@@ -2,98 +2,66 @@
   <div class="container mx-auto h-full py-10">
       {% comment %} footer upper {% endcomment %}
       <div class="block h-fit sm:flex sm:justify-center sm:items-start sm:flex-wrap sm:w-full sm:gap-2 lg:gap-0 lg:justify-between">
-        <div class="w-full h-fit py-4 flex justify-center items-center flex-col gap-12 mb-3 lg:w-[300px]">
-          <h4 class="text-xl font-medium text-black">
-            {% if section.settings.footer_text %}
-              {{ section.settings.footer_text }}
-              {% else %}
-              Join our global community                
-            {% endif %}
-          </h4>
-          <p class="text-sm font-normal text-gray-400 text-center mx-4 sm:mx-10">
-            {% if section.settings.footer_description %}
-              {{ section.settings.footer_description }}
-              {% else %}
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessitatibus ducimus voluptatum eaque    
-            {% endif %}
-          </p>
-          <div class="w-[300px] h-[78px] flex justify-center items-center sm:w-[500px] lg:w-[300px]">
-            <input class="w-[190px] py-2 border bg-white px-2 rounded-l-lg sm:w-[390px] lg:w-[190px]" placeholder="Email" type="email" name="email">
-            <button class="w-[100px] bg-blue-500 text-white py-2 rounded-r-lg ">Sign Up</button>
-          </div>
-        </div>
-        {% if section.blocks.size == 1 %}
-            {% for footer_block in section.blocks %}
-              {% case footer_block.type %}
-                {% when 'first_block' %}
-                  <div class="py-4 mb-3 flex flex-col justify-center items-center gap-4 sm:w-[300px] sm:mb-0 lg:w-[200px]">
-                    <h5 class="text-base text-black font-semibold uppercase">
-                      {% if footer_block.settings.first_block_text_id %}
-                        {{ footer_block.settings.first_block_text_id }}
-                      {% endif %}
-                    </h5>
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.first_block_submenu_url_one_id }}">
-                      {% if footer_block.settings.first_block_submenu_title_one_id %}
-                        {{ footer_block.settings.first_block_submenu_title_one_id }}
-                      {% endif %}                     
-                    </a>   
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.first_block_submenu_url_two_id }}">
-                      {% if footer_block.settings.first_block_submenu_title_two_id %}
-                        {{ footer_block.settings.first_block_submenu_title_two_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.first_block_submenu_url_three_id }}">
-                      {% if footer_block.settings.first_block_submenu_title_three_id %}
-                        {{ footer_block.settings.first_block_submenu_title_three_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.first_block_submenu_url_four_id }}">
-                      {% if footer_block.settings.first_block_submenu_title_four_id %}
-                        {{ footer_block.settings.first_block_submenu_title_four_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.first_block_submenu_url_five_id }}">
-                      {% if footer_block.settings.first_block_submenu_title_five_id %}
-                        {{ footer_block.settings.first_block_submenu_title_five_id }}
-                      {% endif %}                     
-                    </a>           
-                  </div>
-                {% when 'second_block' %}
-                  <div class="py-4 mb-3 flex flex-col justify-center items-center gap-4 sm:w-[300px] sm:mb-0 lg:w-[200px]">
-                    <h5 class="text-base text-black font-semibold uppercase">
-                      {% if footer_block.settings.second_block_text_id %}
-                        {{ footer_block.settings.second_block_text_id }}
-                      {% endif %}
-                    </h5>
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.second_block_submenu_url_one_id }}">
-                      {% if footer_block.settings.second_block_submenu_title_one_id %}
-                        {{ footer_block.settings.second_block_submenu_title_one_id }}
-                      {% endif %}                     
-                    </a>   
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.second_block_submenu_url_two_id }}">
-                      {% if footer_block.settings.second_block_submenu_title_two_id %}
-                        {{ footer_block.settings.second_block_submenu_title_two_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.second_block_submenu_url_three_id }}">
-                      {% if footer_block.settings.second_block_submenu_title_three_id %}
-                        {{ footer_block.settings.second_block_submenu_title_three_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.second_block_submenu_url_four_id }}">
-                      {% if footer_block.settings.second_block_submenu_title_four_id %}
-                        {{ footer_block.settings.second_block_submenu_title_four_id }}
-                      {% endif %}                     
-                    </a> 
-                    <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.second_block_submenu_url_five_id }}">
-                      {% if footer_block.settings.second_block_submenu_title_five_id %}
-                        {{ footer_block.settings.second_block_submenu_title_five_id }}
-                      {% endif %}                     
-                    </a>           
-                  </div>
-              {% endcase %}
-            {% endfor %}
+        {% if section.blocks.size == 1 or section.blocks.size > 1 %}
+          {% for footer_block in section.blocks %}
+            {% case footer_block.type %}
+              {% when 'form_info' %}              
+              <div class="w-full h-fit py-4 flex justify-center items-center flex-col gap-12 mb-3 lg:w-[300px]">
+                <h4 class="text-xl font-medium text-black">
+                  {% if footer_block.settings.footer_text %}
+                    {{ footer_block.settings.footer_text }}
+                    {% else %}
+                    Join our global community                
+                  {% endif %}
+                </h4>
+                <p class="text-sm font-normal text-gray-400 text-center mx-4 sm:mx-10">
+                  {% if footer_block.settings.footer_description %}
+                    {{ footer_block.settings.footer_description }}
+                    {% else %}
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessitatibus ducimus voluptatum eaque    
+                  {% endif %}
+                </p>
+                <div class="w-[300px] h-[78px] flex justify-center items-center sm:w-[500px] lg:w-[300px]">
+                  <input class="w-[190px] py-2 border bg-white px-2 rounded-l-lg sm:w-[390px] lg:w-[190px]" placeholder="Email" type="email" name="email">
+                  <button class="w-[100px] bg-blue-500 text-white py-2 rounded-r-lg ">Sign Up</button>
+                </div>
+              </div>
+              {% when 'footer_nav' %}
+                <div class="py-4 mb-3 flex flex-col justify-center items-center gap-4 sm:w-[300px] sm:mb-0 lg:w-[200px]">
+                  <h5 class="text-base text-black font-semibold uppercase">
+                    {{ footer_block.settings.footer_nav_heading }}
+                  </h5>
+                  <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.footer_sub_menu_url_one_id }}">
+                    {{ footer_block.settings.footer_sub_menu_one_id }}
+                  </a>
+                  <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.footer_sub_menu_url_two_id }}">
+                    {{ footer_block.settings.footer_sub_menu_two_id }}
+                  </a>
+                  <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.footer_sub_menu_url_three_id }}">
+                    {{ footer_block.settings.footer_sub_menu_three_id }}
+                  </a>
+                  <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.footer_sub_menu_url_four_id }}">
+                    {{ footer_block.settings.footer_sub_menu_four_id }}
+                  </a>
+                  <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="{{ footer_block.settings.footer_sub_menu_url_five_id }}">
+                    {{ footer_block.settings.footer_sub_menu_five_id }}
+                  </a>
+                </div>
+            {% endcase %}
+          {% endfor %}
           {% else %}
+          <div class="w-full h-fit py-4 flex justify-center items-center flex-col gap-12 mb-3 lg:w-[300px]">
+            <h4 class="text-xl font-medium text-black">
+              Join our global community                
+            </h4>
+            <p class="text-sm font-normal text-gray-400 text-center mx-4 sm:mx-10">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessitatibus ducimus voluptatum eaque 
+            </p>
+            <div class="w-[300px] h-[78px] flex justify-center items-center sm:w-[500px] lg:w-[300px]">
+              <input class="w-[190px] py-2 border bg-white px-2 rounded-l-lg sm:w-[390px] lg:w-[190px]" placeholder="Email" type="email" name="email">
+              <button class="w-[100px] bg-blue-500 text-white py-2 rounded-r-lg ">Sign Up</button>
+            </div>
+          </div>
           <div class="py-4 mb-3 flex flex-col justify-center items-center gap-4 sm:w-[300px] sm:mb-0 lg:w-[200px]">
             <h5 class="text-base text-black font-semibold uppercase">About Us</h5>
             <a class="text-sm text-gray-400 font-light hover:underline block lg:text-base lg:px-2 lg:text-center" href="#">Our Story</a>
@@ -130,29 +98,50 @@
       {% comment %} footer middle {% endcomment %}
       <div class="w-full h-fit flex justify-center items-center flex-col-reverse">
         <div class="">
-          <span class="block px-4 text-black font-semibold text-center mb-5">2024 Mouus Products Ltd. All right reserved.</span>
+          <span class="block px-4 text-black font-semibold text-center mb-5">{{ now | date: "%Y" }} {{ section.settings.text_footer_subbottom }}. All right reserved.</span>
           <div class="sm:flex sm:justify-center sm:items-center sm:gap-5">
-            <a class="block text-black font-normal text-center mb-3" href="#">Privacy Policy</a>
-            <a class="block text-black font-normal text-center mb-3" href="#">Terms</a>
-            <a class="block text-black font-normal text-center mb-3" href="#">Promotion T&Cs</a>
+            <a class="block text-black font-normal text-center mb-3" href="{{ subbottom_footer_title_one_url_id }}">
+              {{ section.settings.subbottom_footer_title_one_id }}
+            </a>
+            <a class="block text-black font-normal text-center mb-3" href="{{ section.settings.subbottom_footer_title_two_url_id }}">
+              {{ section.settings.subbottom_footer_title_two_id }}
+            </a>
+            <a class="block text-black font-normal text-center mb-3" href="{{ section.settings.subbottom_footer_title_three_url_id }}">
+              {{ section.settings.subbottom_footer_title_three_id }}
+            </a>
           </div>
         </div>
         <div class="w-[200px] flex justify-center items-center mb-8 gap-4">
-          <a class="block" href="https://facebook.com">
-            {% render 'icon-facebook' %}
-          </a>
-          <a class="block" href="https://facebook.com">
-            {% render 'icon-instagram' %}
-          </a>
-          <a class="block" href="https://facebook.com">
-            {% render 'icon-pinterest' %}
-          </a>
-          <a class="block" href="https://facebook.com">
-            {% render 'icon-tiktok' %}
-          </a>
-          <a class="block" href="https://twitter.com">
-            {% render 'icon-twitter' %}
-          </a>
+          {% for block_icons in section.blocks %}
+            {% case block_icons.type %}
+              {% when "footer_icons" %}                   
+              {% if block_icons.settings.footer_icons_text_id == "facebook" %}
+                <a class="block" href="{{ block_icons.settings.footer_icons_id }}">
+                  {% render 'icon-facebook' %}
+                </a>
+              {% endif %}
+              {% if block_icons.settings.footer_icons_text_id == "twitter" %}
+                <a class="block" href="{{ block_icons.settings.footer_icons_id }}">
+                  {% render 'icon-twitter' %}
+                </a>
+              {% endif %}
+              {% if block_icons.settings.footer_icons_text_id == "instagram" %}
+                <a class="block" href="{{ block_icons.settings.footer_icons_id }}">
+                  {% render 'icon-instagram' %}
+                </a>
+              {% endif %}
+              {% if block_icons.settings.footer_icons_text_id == "tiktok" %}
+                <a class="block" href="{{ block_icons.settings.footer_icons_id }}">
+                  {% render 'icon-tiktok' %}
+                </a>
+              {% endif %}
+              {% if block_icons.settings.footer_icons_text_id == "pinterest" %}
+                <a class="block" href="{{ block_icons.settings.footer_icons_id }}">
+                  {% render 'icon-pinterest' %}
+                </a>
+              {% endif %}
+          {% endcase %}
+          {% endfor %}
         </div>
       </div>
   </div>
@@ -163,157 +152,187 @@
   "name": "t:sections.footer.name",
   "settings": [
     {
-      "type": "text",
-      "id": "footer_text",
-      "label": "Add Your Title Here",
-      "placeholder": "Join our Global...",
-      "default": "Join us"
+      "type": "header",
+      "content": "PRIVACY POLICY, TERMS ETC"
     },
     {
-      "type": "textarea",
-      "id": "footer_description",
-      "label": "Add Your Description",
-      "placeholder": "Your Description here",
-      "default": "Lorem lorem lorem lorem"
+      "type": "text",
+      "id": "text_footer_subbottom",
+      "label": "Web Site Signature",
+      "default": "2024 Your Company Name"
+    },
+    {
+      "type": "text",
+      "id": "subbottom_footer_title_one_id",
+      "label": "Add Title Footer",
+      "default": "Edit me",
+      "info": "Privacy Policy"
+    },
+    {
+      "type": "url",
+      "id": "subbottom_footer_title_one_url_id",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "subbottom_footer_title_two_id",
+      "label": "Add Title Footer",
+      "default": "Edit me",
+      "info": "Ex: Terms & Conditions"
+    },
+    {
+      "type": "url",
+      "id": "subbottom_footer_title_two_url_id",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "subbottom_footer_title_three_id",
+      "label": "Add Title Footer",
+      "default": "Edit me",
+      "info": "Ex: Terms & Conditions"
+    },
+    {
+      "type": "url",
+      "id": "subbottom_footer_title_three_url_id",
+      "label": "URL"
     }
   ],
   "blocks": [
-    {
-      "name": "First Block",
-      "type": "first_block",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "first_block_text_id",
-          "label": "Add Your Title",
-          "default": "Title"
-        },
-        {
-          "type": "text",
-          "id": "first_block_submenu_title_one_id",
-          "label": "Add Your Sub Menu 1",
-          "default": "Lorem 1"
-        },
-        {
-          "type": "url",
-          "id": "first_block_submenu_url_one_id",
-          "label": "Enter Your Sub Menu URL 1"
-        },
-        {
-          "type": "text",
-          "id": "first_block_submenu_title_two_id",
-          "label": "Add Your Sub Menu 2",
-          "default": "Lorem 2"
-        },
-        {
-          "type": "url",
-          "id": "first_block_submenu_url_two_id",
-          "label": "Enter Your Sub Menu URL 2"
-        },
-        {
-          "type": "text",
-          "id": "first_block_submenu_title_three_id",
-          "label": "Add Your Sub Menu 3",
-          "default": "Lorem 3"
-        },
-        {
-          "type": "url",
-          "id": "first_block_submenu_url_three_id",
-          "label": "Enter Your Sub Menu URL 3"
-        },
-        {
-          "type": "text",
-          "id": "first_block_submenu_title_four_id",
-          "label": "Add Your Sub Menu 4",
-          "default": "Lorem 4"
-        },
-        {
-          "type": "url",
-          "id": "first_block_submenu_url_four_id",
-          "label": "Enter Your Sub Menu URL 4"
-        },
-        {
-          "type": "text",
-          "id": "first_block_submenu_title_five_id",
-          "label": "Add Your Sub Menu 5",
-          "default": "Lorem 5"
-        },
-        {
-          "type": "url",
-          "id": "first_block_submenu_url_five_id",
-          "label": "Enter Your Sub Menu URL 5"
-        }
-      ]
-    },
-    {
-      "name": "Second Block",
-      "type": "second_block",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "second_block_text_id",
-          "label": "Add Your Title",
-          "default": "Title"
-        },
-        {
-          "type": "text",
-          "id": "second_block_submenu_title_one_id",
-          "label": "Add Your Sub Menu 1",
-          "default": "Lorem 1"
-        },
-        {
-          "type": "url",
-          "id": "second_block_submenu_url_one_id",
-          "label": "Enter Your Sub Menu URL 1"
-        },
-        {
-          "type": "text",
-          "id": "second_block_submenu_title_two_id",
-          "label": "Add Your Sub Menu 2",
-          "default": "Lorem 2"
-        },
-        {
-          "type": "url",
-          "id": "second_block_submenu_url_two_id",
-          "label": "Enter Your Sub Menu URL 2"
-        },
-        {
-          "type": "text",
-          "id": "second_block_submenu_title_three_id",
-          "label": "Add Your Sub Menu 3",
-          "default": "Lorem 3"
-        },
-        {
-          "type": "url",
-          "id": "second_block_submenu_url_three_id",
-          "label": "Enter Your Sub Menu URL 3"
-        },
-        {
-          "type": "text",
-          "id": "second_block_submenu_title_four_id",
-          "label": "Add Your Sub Menu 4",
-          "default": "Lorem 4"
-        },
-        {
-          "type": "url",
-          "id": "second_block_submenu_url_four_id",
-          "label": "Enter Your Sub Menu URL 4"
-        },
-        {
-          "type": "text",
-          "id": "second_block_submenu_title_five_id",
-          "label": "Add Your Sub Menu 5",
-          "default": "Lorem 5"
-        },
-        {
-          "type": "url",
-          "id": "second_block_submenu_url_five_id",
-          "label": "Enter Your Sub Menu URL 5"
-        }
-      ]
-    }
+   {
+    "name": "Form Info",
+    "type": "form_info",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_text",
+        "label": "Add Your Title Here",
+        "placeholder": "Join our Global...",
+        "default": "Join us"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_description",
+        "label": "Add Your Description",
+        "placeholder": "Your Description here",
+        "default": "Lorem lorem lorem lorem"
+      }
+    ]
+   },
+   {
+    "name": "Footer Nav",
+    "type": "footer_nav",
+    "limit": 4,
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_nav_heading",
+        "label": "Footer Nav Heading",
+        "default": "Nav Title"
+      },
+      {
+        "type": "header",
+        "content": "SUB MENU ONE"
+      },
+      {
+        "type": "text",
+        "id": "footer_sub_menu_one_id",
+        "label": "Footer Sub Menu One",
+        "default": "Lorem One"
+      },
+      {
+        "type": "url",
+        "id": "footer_sub_menu_url_one_id",
+        "label": "Footer Sub Menu URL One",
+        "info": "https://shopify.com"
+      },
+      {
+        "type": "header",
+        "content": "SUB MENU TWO"
+      },
+      {
+        "type": "text",
+        "id": "footer_sub_menu_two_id",
+        "label": "Footer Sub Menu two",
+        "default": "Lorem Two"
+      },
+      {
+        "type": "url",
+        "id": "footer_sub_menu_url_two_id",
+        "label": "Footer Sub Menu URL Two",
+        "info": "https://shopify.com"
+      },
+      {
+        "type": "header",
+        "content": "SUB MENU THREE"
+      },
+      {
+        "type": "text",
+        "id": "footer_sub_menu_three_id",
+        "label": "Footer Sub Menu Three",
+        "default": "Lorem three"
+      },
+      {
+        "type": "url",
+        "id": "footer_sub_menu_url_three_id",
+        "label": "Footer Sub Menu URL Three",
+        "info": "https://shopify.com"
+      },
+      {
+        "type": "header",
+        "content": "SUB MENU FOUR"
+      },
+      {
+        "type": "text",
+        "id": "footer_sub_menu_four_id",
+        "label": "Footer Sub Menu four",
+        "default": "Lorem four"
+      },
+      {
+        "type": "url",
+        "id": "footer_sub_menu_url_four_id",
+        "label": "Footer Sub Menu URL four",
+        "info": "https://shopify.com"
+      },
+      {
+        "type": "header",
+        "content": "SUB MENU FIVE"
+      },
+      {
+        "type": "text",
+        "id": "footer_sub_menu_five_id",
+        "label": "Footer Sub Menu Five",
+        "default": "Lorem five"
+      },
+      {
+        "type": "url",
+        "id": "footer_sub_menu_url_five_id",
+        "label": "Footer Sub Menu URL Five",
+        "info": "https://shopify.com"
+      }
+    ]
+   },
+   {
+    "name": "Footer Icons",
+    "limit": 6,
+    "type": "footer_icons",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_icons_text_id",
+        "label": "Add The Name Of The Icon",
+        "placeholder": "Facebook",
+        "info": "Name of Icons ex: Facebook, Tiktok, Instagram, Twitter, LinkedIn, Pinterrest"
+      },
+      {
+        "type": "url",
+        "id": "footer_icons_id",
+        "label": "Icon URL",
+        "info": "https://facebook.com"
+      }
+    ]
+   }
   ]
 }
 {% endschema %}
