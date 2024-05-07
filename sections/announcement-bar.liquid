@@ -1,9 +1,10 @@
-<div style="background-color:{{ section.settings.background_announcement_id }}" class="w-full h-fit flex justify-center items-center">
-  <div style="color:{{ section.settings.text_announcement_id }}" class="text-sm  text-center min-w-[300px] p-2 md:max-w-[620px] md:text-base">
-      {{ section.settings.richtext_annoucement_id }}
+{% if section.settings.checkbox_announcement_bar_id %}
+  <div style="background-color:{{ section.settings.background_announcement_id }}" class="w-full h-fit flex justify-center items-center">
+    <div style="color:{{ section.settings.text_announcement_id }}" class="text-sm text-center min-w-[300px] p-2 md:max-w-[620px] {{ section.settings.announcement_text_size_id }} ">
+        {{ section.settings.richtext_annoucement_id }}
+    </div>
   </div>
-</div>
-{% comment %} <svg class="icon icon--mous-logo" aria-hidden="true" fill="currentColor" viewBox="0 0 231 78" xmlns="http://www.w3.org/2000/svg"><path d="M43.69 51.46l14.88-25.59L88 77H0a8.39 8.39 0 01.55-2.29c9.29-16.1 18.61-32.18 28.22-48.77l14.92 25.52zm64.65 25.63c-14.166 0-25.65-11.484-25.65-25.65 0-14.166 11.484-25.65 25.65-25.65 14.166 0 25.65 11.484 25.65 25.65 0 14.166-11.484 25.65-25.65 25.65zm30.16-25.67h51.3c0 14.166-11.484 25.65-25.65 25.65-14.166 0-25.65-11.484-25.65-25.65zm66.8-25.64h.01c13.975.35 25.096 11.828 25.006 25.807-.09 13.98-11.358 25.312-25.336 25.483V51.29c-13.974-.35-25.096-11.823-25.009-25.802C180.058 11.509 191.322.175 205.3 0v25.78z"></path></svg> {% endcomment %}
+{% endif %}
 
 {% schema %}
 {
@@ -54,6 +55,26 @@
       "id": "text_announcement_id",
       "label": "Choose Your Annoucement Text Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Announcement Text Size"
+    },
+    {
+      "type": "select",
+      "id": "announcement_text_size_id",
+      "label": "Anouncement Text Size For Desktop",
+      "options": [
+        {
+          "value": "md:text-sm",
+          "label": "14px"
+        },
+        {
+          "value": "md:text-base",
+          "label": "16px"
+        }
+      ],
+      "default": "md:text-base"
     }
    
   ],

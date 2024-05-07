@@ -2699,6 +2699,11 @@ video {
     font-size: 16px;
     line-height: 24px;
   }
+
+  .md\:text-sm {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 @media (min-width: 1024px) {
 
