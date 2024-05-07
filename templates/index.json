@@ -48,11 +48,12 @@
         "header_image_picker_id": "shopify:\/\/shop_images\/header.png",
         "header_image_picker_height_id": "70vh",
         "header_box_color_enable_id": true,
-        "header_box_color_id": "#ffffff",
-        "header_box_rounded_id": "rounded-2xl",
+        "header_box_color_id": "#f5f5f5",
+        "header_box_rounded_id": "rounded-md",
         "header_box_id": "mr-auto",
         "header_all_text_btn_id": "start",
-        "text_h1_decoration_id": "capitalize"
+        "text_h1_decoration_id": "capitalize",
+        "box_dimension_desktop_id": "md:py-5"
       }
     },
     "featured_collection": {
