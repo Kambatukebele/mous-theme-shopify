@@ -2695,6 +2695,21 @@ video {
     align-items: center;
   }
 
+  .md\:py-10 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .md\:py-16 {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .md\:py-5 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   .md\:text-base {
     font-size: 16px;
     line-height: 24px;
