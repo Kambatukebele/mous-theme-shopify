@@ -7,7 +7,7 @@
       "settings": {
         "checkbox_announcement_bar_id": true,
         "richtext_annoucement_id": "Free shipping on order of $49 or more. 30 days returns on all orders.",
-        "background_announcement_id": "#00bec8",
+        "background_announcement_id": "#000000",
         "text_announcement_id": "#ffffff",
         "announcement_text_size_id": "md:text-sm"
       }
@@ -17,8 +17,8 @@
       "settings": {
         "site_logo": "shopify:\/\/shop_images\/MOUS_1-removebg-preview.png",
         "site_logo_size_id": 120,
-        "header_background_color_id": "#f5f5f5",
-        "header_menu_color_id": "#242833",
+        "header_background_color_id": "#fff",
+        "header_menu_color_id": "#121212",
         "header_menu_color_hover_id": "#00bec8",
         "header_bottom_separator_id": true,
         "header_font_style_id": "capitalize",
