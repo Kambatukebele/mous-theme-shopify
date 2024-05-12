@@ -1,12 +1,24 @@
 <section  class="featured_collection w-full relative h-[350px] sm:h-[380px] lg:h-[330px]">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] min-h-[250px]  lg:w-[990px] lg:min-h-0 lg:h-[190px] xl:w-[1200px] 2xl:w-[1480px]">
+  <div class="container mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] min-h-[250px] lg:min-h-0 lg:h-[190px]">
     <div class="grid gap-4 grid-cols-3 grid-rows-2 lg:grid-cols-6 lg:grid-rows-0 lg:gap-3">
-      {% for collection in section.settings.collection_list %}
+      {% if section.settings.collection_list != blank %}
+        {% for collection in section.settings.collection_list %}
           <a class="py-1 flex justify-between items-center flex-col w-full" href="{{ collection.url }}">
-            <img class="rounded-3xl {% if section.settings.featured_collection_shadow_checkbox_id %} shadow-{{ section.settings.featured_collection_shadow_id }} {% endif %} {% if section.settings.featured_collection_shadow_hover_checkbox_id %} lg:hover:shadow-{{ section.settings.featured_collection_shadow_hover_id }} {% endif %}"  src="{{ collection.featured_image |  image_url: width:full  }}" alt="{{ collection.title }}">
+            <img class="w-full h-full object-cover object-center rounded-3xl {% if section.settings.featured_collection_shadow_checkbox_id %} shadow-{{ section.settings.featured_collection_shadow_id }} {% endif %} {% if section.settings.featured_collection_shadow_hover_checkbox_id %} lg:hover:shadow-{{ section.settings.featured_collection_shadow_hover_id }} {% endif %}"  src="{{ collection.featured_image |  image_url: width:1500  }}" alt="{{ collection.title }}">
             <p class="text-center mt-3 text-base text-gray-500 font-normal">{{ collection.title }}</p>
           </a>
-      {% endfor %}
+        {% endfor %}
+        {% else %}
+        {% assign emptyFeacturedCollections = "product-1.svg, product-2.svg, product-3.svg, product-4.svg, product-5.svg, product-6.svg" |  split: "," %}
+       
+          {% for emptyFeacturedCollection in emptyFeacturedCollections %}
+          
+            <a class="py-1 flex justify-between items-center flex-col w-full" href="{{ collection.url }}">
+              <img class="w-full h-full object-cover object-center rounded-3xl {% if section.settings.featured_collection_shadow_checkbox_id %} shadow-{{ section.settings.featured_collection_shadow_id }} {% endif %} {% if section.settings.featured_collection_shadow_hover_checkbox_id %} lg:hover:shadow-{{ section.settings.featured_collection_shadow_hover_id }} {% endif %}"  src="{{ emptyFeacturedCollection |  asset_url  }}" alt="{{ collection.title }}">
+              <p class="text-center mt-3 text-base text-gray-500 font-normal">{{ collection.title }}</p>
+            </a>
+          {% endfor %}
+      {% endif% %}
     </div>  
   </div>
 </section>
