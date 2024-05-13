@@ -2059,10 +2059,6 @@ video {
   font-size: 20px;
   line-height: 28px;
 }
-.text-6xl {
-  font-size: 60px;
-  line-height: 1;
-}
 .font-bold {
   font-weight: 700;
 }
@@ -2938,6 +2934,11 @@ video {
     line-height: 40px;
   }
 
+  .lg\:text-6xl {
+    font-size: 60px;
+    line-height: 1;
+  }
+
   .lg\:text-7xl {
     font-size: 72px;
     line-height: 1;
@@ -2960,11 +2961,6 @@ video {
   .lg\:text-xl {
     font-size: 20px;
     line-height: 28px;
-  }
-
-  .lg\:text-6xl {
-    font-size: 60px;
-    line-height: 1;
   }
 
   .lg\:font-medium {
