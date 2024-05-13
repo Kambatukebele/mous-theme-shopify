@@ -1,11 +1,11 @@
-<section class="header-image w-full relative">
-    <div class="w-[90%] h-[350px] mx-auto  lg:w-[990px] xl:w-[1200px] 2xl:w-[1480px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<section style="border-bottom: 1px solid black;" class="header-image w-full relative">
+    <div class="container h-[350px] mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div style="{% if section.settings.header_box_color_enable_id %}
         background-color:{{ section.settings.header_box_color_id }}; {% endif %}" class="{% if section.settings.header_box_color_enable_id %}px-5{% endif %} w-full {{ section.settings.header_box_rounded_id }} flex justify-center h-fit py-5 {% if section.settings.box_dimension_desktop_id %} {{ section.settings.box_dimension_desktop_id }} {% endif %} md:w-[500px] lg:w-[600px]  lg:{{ section.settings.header_box_id }}  items-{{ section.settings.header_all_text_btn_id }} flex-col">
             {% for block in section.blocks %}
                 {% case block.type %}
                     {% when "text" %}
-                        <h1 class="header_h1 text-4xl text-{{ section.settings.header_all_text_btn_id }} 
+                        <h1 class="header_h1 text-4xl lg:text-6xl text-{{ section.settings.header_all_text_btn_id }} 
                             {% if section.settings.text_h1_decoration_id %} 
                                 {{ section.settings.text_h1_decoration_id }} 
                             {% endif %} mb-2 font-semibold leading-10 lg:leading-[72px] lg:text-7xl ">
@@ -33,7 +33,7 @@
 
 <style>
     .header-image{
-        background: url("{{ section.settings.header_image_picker_id |  image_url: width:full  }}");
+        background: url("{% if section.settings.header_image_picker_id %}{{ section.settings.header_image_picker_id |  image_url: width:full  }}{% else %}{{ 'lifestyle-2.svg' |  asset_url }}{{ 'lifestyle-2.svg' |  asset_url }}{% endif %}");
         background-position: center center;
         background-size: cover;
         height: {{ section.settings.header_image_picker_height_id }};
