@@ -127,7 +127,7 @@
         "card_text_XngTD3": {
           "type": "card_text",
           "settings": {
-            "card_right_text_id": "Card Text",
+            "card_right_text_id": "Card Texts",
             "card_right_text_color_id": "#000000",
             "card_right_textarea_id": "I am a description card. Please Fill me",
             "card_right_textarea_color_id": "#000000",
