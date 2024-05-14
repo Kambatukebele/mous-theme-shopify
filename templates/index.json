@@ -68,61 +68,58 @@
         "featured_collection_shadow_hover_id": "2xl"
       }
     },
-    "two_collums_e89BCg": {
-      "type": "two-collums",
+    "card_6kTjQr": {
+      "type": "card",
+      "blocks": {
+        "collection_block_BJb3UF": {
+          "type": "collection_block",
+          "settings": {
+            "card_color_background_id": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "card_title_id": "Title",
+            "card_title_color_id": "#000000",
+            "card_first_description_id": "Lorem ipsum dolor sit amet consectetur!",
+            "card_description_color_id": "#000000",
+            "card_btntext_id": "Show now",
+            "card_btntext_color_id": "#ffffff",
+            "card_btntext_bg_id": "#000000"
+          }
+        },
+        "collection_block_cWU8E8": {
+          "type": "collection_block",
+          "settings": {
+            "card_color_background_id": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "card_title_id": "Title",
+            "card_title_color_id": "#000000",
+            "card_first_description_id": "Lorem ipsum dolor sit amet consectetur!",
+            "card_description_color_id": "#000000",
+            "card_btntext_id": "Show now",
+            "card_btntext_color_id": "#ffffff",
+            "card_btntext_bg_id": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_BJb3UF",
+        "collection_block_cWU8E8"
+      ],
       "settings": {
-        "two_collums_color_background_id": "#ffffff",
-        "two_collums_padding_section_id": "py-0",
-        "two_collums_rounded_id": "none"
+        "card_color_background_id": "#ffffff",
+        "card_padding_section_id": "py-0",
+        "card_rounded_id": "none"
       }
     },
-    "three_collums_8rb8g7": {
-      "type": "three-collums",
+    "info_cards_mMMPia": {
+      "type": "info-cards",
       "settings": {
-        "three_collums_color_background_one_id": "#D3D3D3",
-        "three_collums_text_one_id": "First Title",
-        "three_collums_text_one_color_id": "#ffffff",
-        "three_collums_description_one_id": "This is Your first Description. take case of it!",
-        "three_collums_description_color_one_id": "#ffffff",
-        "three_collums_first_button_text_id": "Show now",
-        "three_collums_first_button_bg_color_id": "#000000",
-        "three_collums_first_button_text_color_id": "#ffffff",
-        "three_collums_first_button_enable_border_color_id": false,
-        "three_collums_first_button_border_color_id": "#000000",
-        "three_collums_color_background_two_id": "#D3D3D3",
-        "three_collums_text_two_id": "First Title",
-        "three_collums_text_two_color_id": "#ffffff",
-        "three_collums_description_two_id": "This is Your first Description. take case of it!",
-        "three_collums_description_color_two_id": "#ffffff",
-        "three_collums_second_button_text_id": "Show now",
-        "three_collums_second_button_bg_color_id": "#000000",
-        "three_collums_second_button_text_color_id": "#ffffff",
-        "three_collums_second_button_enable_border_color_id": false,
-        "three_collums_second_button_border_color_id": "#000000",
-        "three_collums_color_background_three_id": "#D3D3D3",
-        "three_collums_text_three_id": "First Title",
-        "three_collums_text_three_color_id": "#ffffff",
-        "three_collums_description_three_id": "This is Your first Description. take case of it!",
-        "three_collums_description_color_three_id": "#ffffff",
-        "three_collums_third_button_text_id": "Show now",
-        "three_collums_third_button_bg_color_id": "#000000",
-        "three_collums_third_button_text_color_id": "#ffffff",
-        "three_collums_third_button_enable_border_color_id": false,
-        "three_collums_third_button_border_color_id": "#000000"
-      }
-    },
-    "choose_MKUFKj": {
-      "type": "choose",
-      "settings": {
-        "choose_title_id": "Why Us"
+        "info_card_bg_section_id": "",
+        "info_card_bg_section_padding_id": "py-5"
       }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
-    "two_collums_e89BCg",
-    "three_collums_8rb8g7",
-    "choose_MKUFKj"
+    "card_6kTjQr",
+    "info_cards_mMMPia"
   ]
 }

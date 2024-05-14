@@ -1,0 +1,59 @@
+<section class="w-full  h-full bg-gray-100 mb-5 overflow-x-auto">
+    <div class="container mx-auto h-fit flex justify-start items-center gap-4 overflow-x-scroll">   
+        <div class="min-w-[300px] rounded-2xl border">
+            <img class="block w-full h-full max-h-[300px] rounded-2xl object-cover object-center" src="{%- if section.settings.info_card_image_one_id -%} {{ section.settings.info_card_image_one_id | image_url: width:206 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
+            <div style="background-color: {{ section.settings.info_card_color_background_one_id }};" class="h-[200px] flex justify-center items-center flex-col rounded-b-2xl">
+                <h3 style="color: {{ section.settings.info_card_text_one_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.info_card_text_one_id }}
+                </h3>
+                <p style="color: {{ section.settings.info_card_description_color_one_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.info_card_description_one_id }}
+                </p>
+                <button style="background-color: {{ section.settings.info_card_first_button_bg_color_id }}; color:{{ section.settings.info_card_first_button_text_color_id }}; {%- if section.settings.info_card_first_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.info_card_first_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
+                    <a href="#">
+                       {{ section.settings.info_card_first_button_text_id }}
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="min-w-[300px] rounded-2xl border">
+            <img class="block w-full h-full max-h-[300px] rounded-2xl object-cover object-center" src="{%- if section.settings.info_card_image_one_id -%} {{ section.settings.info_card_image_one_id | image_url: width:206 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
+            <div style="background-color: {{ section.settings.info_card_color_background_one_id }};" class="h-[200px] flex justify-center items-center flex-col rounded-b-2xl">
+                <h3 style="color: {{ section.settings.info_card_text_one_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.info_card_text_one_id }}
+                </h3>
+                <p style="color: {{ section.settings.info_card_description_color_one_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.info_card_description_one_id }}
+                </p>
+                <button style="background-color: {{ section.settings.info_card_first_button_bg_color_id }}; color:{{ section.settings.info_card_first_button_text_color_id }}; {%- if section.settings.info_card_first_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.info_card_first_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
+                    <a href="#">
+                       {{ section.settings.info_card_first_button_text_id }}
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="min-w-[300px] rounded-2xl border">
+            <img class="block w-full h-full max-h-[300px] rounded-2xl object-cover object-center" src="{%- if section.settings.info_card_image_one_id -%} {{ section.settings.info_card_image_one_id | image_url: width:206 }} {%- else -%} {{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
+            <div style="background-color: {{ section.settings.info_card_color_background_one_id }};" class="h-[200px] flex justify-center items-center flex-col rounded-b-2xl">
+                <h3 style="color: {{ section.settings.info_card_text_one_color_id }};" class="text-xl font-semibold text-center my-1">
+                    {{ section.settings.info_card_text_one_id }}
+                </h3>
+                <p style="color: {{ section.settings.info_card_description_color_one_id }};" class="text-base font-normal text-center mb-3 px-1">
+                    {{ section.settings.info_card_description_one_id }}
+                </p>
+                <button style="background-color: {{ section.settings.info_card_first_button_bg_color_id }}; color:{{ section.settings.info_card_first_button_text_color_id }}; {%- if section.settings.info_card_first_button_enable_border_color_id -%}
+                    border: 1px solid {{ section.settings.info_card_first_button_border_color_id }}
+                {%- endif -%}" class="py-2 px-4 rounded-lg">                
+                    <a href="#">
+                       {{ section.settings.info_card_first_button_text_id }}
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+

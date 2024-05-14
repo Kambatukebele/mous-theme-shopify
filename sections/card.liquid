@@ -1,21 +1,21 @@
-<section class="two-collums-all w-full h-fit {{ section.settings.two_collums_padding_section_id }} ">
+<section class="card-all w-full h-fit {{ section.settings.card_padding_section_id }} mb-5">
     <div class="container mx-auto h-fit flex gap-5 flex-col justify-center items-center md:flex-row mb-10">
         {% if section.blocks.size != 0 %}
             {% for block_collection in section.blocks %}
                {% case block_collection.type %}
                 {% when "collection_block" %}
-                <div class="{% if section.settings.two_collums_rounded_id %} rounded-{{ section.settings.two_collums_rounded_id }} border {% endif %}  relative min-w-[100px] sm:w-[450px] md:w-full xl:h-[550px]">
-                    <img class="w-full h-full object-cover object-center rounded-{{ section.settings.two_collums_rounded_id }}" src="{% if block_collection.settings.two_collums_image_id %} {{ block_collection.settings.two_collums_image_id |  image_url: width:master  }} {% else %} {{ 'collection-1.svg' |  asset_url }} {% endif %}" alt=""> 
+                <div class="{% if section.settings.card_rounded_id %} rounded-{{ section.settings.card_rounded_id }} border {% endif %}  relative min-w-[100px] sm:w-[450px] md:w-full xl:h-[550px] flex justify-center items-center">
+                    <img class="w-full h-full object-cover object-center rounded-{{ section.settings.card_rounded_id }}" src="{% if block_collection.settings.card_image_id %} {{ block_collection.settings.card_image_id |  image_url: width:500  }} {% else %} {{ 'collection-1.svg' |  asset_url }} {% endif %}" alt=""> 
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
-                        <h3 style="color: {{ block_collection.settings.two_collums_title_color_id }};" class="text-2xl lg:text-[40px] text-center font-semibold mb-1">
-                            {{ block_collection.settings.two_collums_title_id }}
+                        <h3 style="color: {{ block_collection.settings.card_title_color_id }};" class="text-2xl lg:text-[40px] text-center font-semibold mb-1">
+                            {{ block_collection.settings.card_title_id }}
                         </h3>
-                        <p style="color: {{ block_collection.settings.two_collums_description_color_id }};" class="text-base lg:text-xl text-center font-thin mb-1">
-                            {{ block_collection.settings.two_collums_first_description_id }}                                
+                        <p style="color: {{ block_collection.settings.card_description_color_id }};" class="text-base lg:text-xl text-center font-thin mb-1">
+                            {{ block_collection.settings.card_first_description_id }}                                
                         </p>
-                        <button style="background: {{ block_collection.settings.two_collums_btntext_bg_id }}; color: {{ block_collection.settings.two_collums_btntext_color_id }}" class="two-collums-block-btn mb-2 py-2 px-4 rounded-xl">
+                        <button style="background: {{ block_collection.settings.card_btntext_bg_id }}; color: {{ block_collection.settings.card_btntext_color_id }}" class="two-collums-block-btn mb-2 py-2 px-4 rounded-xl">
                             <a class="section" href="#">
-                                {{ block_collection.settings.two_collums_btntext_id }}
+                                {{ block_collection.settings.card_btntext_id }}
                             </a>
                         </button>
                     </div>
@@ -44,15 +44,15 @@
 </section>
         
 <style>
-    .two-collums-all{
-        /* two_collums_first_image_id */
-        background: {{ section.settings.two_collums_color_background_id }};
+    .card-all{
+        /* card_first_image_id */
+        background: {{ section.settings.card_color_background_id }};
     }
 </style>
 
 {% schema %}
 {
-    "name": "Two collums",
+    "name": "Card",
     "settings": [
         {
             "type": "header",
@@ -60,13 +60,13 @@
         },
         {
             "type": "color_background",
-            "id": "two_collums_color_background_id",
+            "id": "card_color_background_id",
             "label": "Background Color",
             "default": "#ffffff"
         },
         {
             "type": "select",
-            "id": "two_collums_padding_section_id",
+            "id": "card_padding_section_id",
             "label": "Add Padding",
             "options": [
                 {
@@ -91,7 +91,7 @@
         },
         {
             "type": "select",
-            "id": "two_collums_rounded_id",
+            "id": "card_rounded_id",
             "label": "Shadow",
             "options": [
                 {
@@ -135,7 +135,7 @@
                 },
                 {
                     "type": "color_background",
-                    "id": "two_collums_color_background_id",
+                    "id": "card_color_background_id",
                     "label": "Add Section Background Color",
                     "default": "linear-gradient(#ffffff, #000000)"
                 },
@@ -145,48 +145,48 @@
                 },
                 {
                     "type": "image_picker",
-                    "id": "two_collums_image_id",
+                    "id": "card_image_id",
                     "label": "Image"
                 },
                 {
                     "type": "text",
-                    "id": "two_collums_title_id",
+                    "id": "card_title_id",
                     "label": "Title",
                     "default": "Title"
                 },
                 {
                     "type": "color",
-                    "id": "two_collums_title_color_id",
+                    "id": "card_title_color_id",
                     "label": "Title Color",
                     "default": "#000000"
                 },
                 {
                     "type": "inline_richtext",
-                    "id": "two_collums_first_description_id",
+                    "id": "card_first_description_id",
                     "label": "Description",
                     "default": "<span>Lorem ipsum dolor sit amet consectetur!</span>"
                 },
                 {
                     "type": "color",
-                    "id": "two_collums_description_color_id",
+                    "id": "card_description_color_id",
                     "label": "Description Color",
                     "default": "#000000"
                 },
                 {
                     "type": "text",
-                    "id": "two_collums_btntext_id",
+                    "id": "card_btntext_id",
                     "label": "Button Text",
                     "default": "Show now"
                 },
                 {
                     "type": "color",
-                    "id": "two_collums_btntext_color_id",
+                    "id": "card_btntext_color_id",
                     "label": "Button Title Color",
                     "default": "#ffffff"
                 },
                 {
                     "type": "color",
-                    "id": "two_collums_btntext_bg_id",
+                    "id": "card_btntext_bg_id",
                     "label": "Buton Background Color",
                     "default": "#000000"
                 }
@@ -195,7 +195,7 @@
     ],
     "presets": [
         {
-            "name": "Two Collums"
+            "name": "Card"
         }
     ]
 }
