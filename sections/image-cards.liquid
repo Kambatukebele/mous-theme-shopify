@@ -1,26 +1,25 @@
 <section style="background: {{ section.setttings.image_card_bg_color_id }};" class="w-full h-fit mb-10 {{ section.settings.image_card_section_padding_id }}">
     <div class="container mx-auto h-fit flex justify-center items-center flex-col gap-4 lg:flex-row">
-
         {% if section.blocks != blank %}
             {% for card in section.blocks %}
                 {% case card.type %}
                     {% when "image_card" %}
-                        <img class="w-[300px] h-[370px] sm:w-1/2 lg:h-[500px] xl:h-[700px] mx-auto border object-cover object-center rounded-2xl" src="{% if section.settings.choose_image_id %}
-                            {{ image_card.settings.image_card_img_id |  image_url: width:full  }}
+                        <img class="w-[300px] h-[370px] sm:w-1/2 lg:h-[500px] xl:h-[700px] mx-auto border object-cover object-center rounded-2xl" src="{% if card.settings.image_card_img_id %}
+                            {{ card.settings.image_card_img_id |  image_url: width:full  }}
                             {% else %}
                             {{ 'collection-1.svg' |  asset_url  }}
                         {% endif %}" alt="">
-                    {% when "card_right" %}
+                    {% when "card_text" %}
                         <div class="w-[300px] h-[370px] flex flex-col justify-center items-center gap-8 rounded-2xl lg:h-[500px] xl:h-[700px] sm:w-1/2 mx-auto border">
-                            <h3 style="color: {{ card_right.settings.card_right_text_color_id }};" class="text-2xl text-center font-semibold text-black w-full lg:text-4xl lg:my-0 xl:p-5">
-                                {{ card_right.settings.card_right_text_id }}
+                            <h3 style="color: {{ card.settings.card_right_text_color_id }};" class="text-2xl text-center font-semibold text-black w-full lg:text-4xl lg:my-0 xl:p-5">
+                                {{ card.settings.card_right_text_id }}
                             </h3>
-                            <p style="color: {{ card_right.settings.card_right_textarea_color_id }};" class="text-center text-gray-500 px-4">
-                                {{ card_right.settings.card_right_textarea_id }}
+                            <p style="color: {{ card.settings.card_right_textarea_color_id }};" class="text-center text-gray-500 px-4">
+                                {{ card.settings.card_right_textarea_id }}
                             </p>
-                            <button style="background: {{ card_right.settings.card_right_bg-button_id }}; color: {{ card_right.settings.card_right_color_button_text_id }};" class="py-2 px-4 rounded-lg">
-                                <a href="{{ card_right.settings.card_right_button_url_id }}">
-                                    {{ card_right.settings.card_right_button_text_id }}
+                            <button style="background: {{ card.settings.card_right_bg-button_id }}; color: {{ card.settings.card_right_color_button_text_id }};" class="py-2 px-4 rounded-lg">
+                                <a href="{{ card.settings.card_right_button_url_id }}">
+                                    {{ card.settings.card_right_button_text_id }}
                                 </a>
                             </button>
                         </div>   
@@ -99,7 +98,7 @@
         },
         {
             "name": "Card Right",
-            "type": "card_right",
+            "type": "card_text",
             "limit": 1,
             "settings": [
                 {

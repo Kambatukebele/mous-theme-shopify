@@ -112,11 +112,36 @@
       "type": "info-cards",
       "settings": {
         "info_card_bg_section_id": "",
-        "info_card_bg_section_padding_id": "py-5"
+        "info_card_bg_section_padding_id": "py-10"
       }
     },
     "image_cards_kTkdGU": {
       "type": "image-cards",
+      "blocks": {
+        "image_card_tBKHmW": {
+          "type": "image_card",
+          "settings": {
+            "image_card_img_id": "shopify:\/\/shop_images\/Why_Mous_516x_a3f1dd5e-4e00-45d1-b0d8-a0bed325f501.webp"
+          }
+        },
+        "card_text_XngTD3": {
+          "type": "card_text",
+          "settings": {
+            "card_right_text_id": "Card Text",
+            "card_right_text_color_id": "#000000",
+            "card_right_textarea_id": "I am a description card. Please Fill me",
+            "card_right_textarea_color_id": "#000000",
+            "card_right_button_text_id": "Show me",
+            "card_right_button_url_id": "",
+            "card_right_bg-button_id": "#000000",
+            "card_right_color_button_text_id": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "image_card_tBKHmW",
+        "card_text_XngTD3"
+      ],
       "settings": {
         "image_card_bg_color_id": "linear-gradient(320deg, rgba(56, 78, 197, 1) 16%, rgba(203, 68, 194, 1) 52%, rgba(255, 201, 104, 1) 87%)",
         "image_card_section_padding_id": "py-5"
