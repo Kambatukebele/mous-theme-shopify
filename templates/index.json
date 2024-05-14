@@ -114,12 +114,20 @@
         "info_card_bg_section_id": "",
         "info_card_bg_section_padding_id": "py-5"
       }
+    },
+    "image_cards_kTkdGU": {
+      "type": "image-cards",
+      "settings": {
+        "image_card_bg_color_id": "linear-gradient(320deg, rgba(56, 78, 197, 1) 16%, rgba(203, 68, 194, 1) 52%, rgba(255, 201, 104, 1) 87%)",
+        "image_card_section_padding_id": "py-5"
+      }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
     "card_6kTjQr",
-    "info_cards_mMMPia"
+    "info_cards_mMMPia",
+    "image_cards_kTkdGU"
   ]
 }

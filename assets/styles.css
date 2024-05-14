@@ -915,6 +915,27 @@ video {
 .h-\[200px\] {
   height: 200px;
 }
+.h-\[700px\] {
+  height: 700px;
+}
+.h-\[400px\] {
+  height: 400px;
+}
+.h-\[370px\] {
+  height: 370px;
+}
+.h-\[170px\] {
+  height: 170px;
+}
+.h-\[270px\] {
+  height: 270px;
+}
+.h-\[600px\] {
+  height: 600px;
+}
+.h-\[500px\] {
+  height: 500px;
+}
 .max-h-\[300px\] {
   max-height: 300px;
 }
@@ -923,6 +944,12 @@ video {
 }
 .max-h-\[600px\] {
   max-height: 600px;
+}
+.max-h-\[700px\] {
+  max-height: 700px;
+}
+.max-h-\[400px\] {
+  max-height: 400px;
 }
 .min-h-\[279px\] {
   min-height: 279px;
@@ -983,6 +1010,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-1\/2 {
+  width: 50%;
 }
 .min-w-72 {
   min-width: 288px;
@@ -1885,6 +1915,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+}
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2630,6 +2664,10 @@ video {
     width: 100%;
   }
 
+  .sm\:w-1\/2 {
+    width: 50%;
+  }
+
   .sm\:max-w-\[290px\] {
     max-width: 290px;
   }
@@ -2804,6 +2842,10 @@ video {
     height: 700px;
   }
 
+  .lg\:h-\[500px\] {
+    height: 500px;
+  }
+
   .lg\:w-\[190px\] {
     width: 190px;
   }
@@ -2886,6 +2928,10 @@ video {
 
   .lg\:grid-rows-1 {
     grid-template-rows: repeat(1, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 
   .lg\:items-start {
@@ -3021,6 +3067,10 @@ video {
     height: 500px;
   }
 
+  .xl\:h-\[300px\] {
+    height: 300px;
+  }
+
   .xl\:max-h-0 {
     max-height: 0px;
   }
@@ -3053,12 +3103,41 @@ video {
     max-width: 500px;
   }
 
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
+  .xl\:items-start {
+    align-items: flex-start;
+  }
+
   .xl\:justify-center {
     justify-content: center;
   }
 
+  .xl\:justify-between {
+    justify-content: space-between;
+  }
+
   .xl\:gap-16 {
     gap: 64px;
+  }
+
+  .xl\:overflow-y-hidden {
+    overflow-y: hidden;
+  }
+
+  .xl\:bg-green-200 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+  }
+
+  .xl\:p-5 {
+    padding: 20px;
+  }
+
+  .xl\:pt-5 {
+    padding-top: 20px;
   }
 
   .xl\:text-base {
