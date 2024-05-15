@@ -12,54 +12,55 @@
             </span>
         </div>
     </div>
- </section>
-<section  class="container mx-auto px-4 my-5 mb-20">
-    <div class="w-full flex justify-start items-center overflow-x-auto">
+</section>
+<section class="w-full  h-fit bg-gray-50 mb-5 py-10 overflow-hidden">
+    <div class="container mx-auto h-fit flex justify-start items-center gap-4 overflow-x-scroll">   
         {% comment %} Product go here {% endcomment %}
         {% if section.settings.product_list != blank %}
-            {% for product in section.settings.product_list %}            
-                <a href="{{ product.url }}" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl lg:hover:shadow-xl xl:w-[300px]">
-                    <div class="w-[153px] h-[153px] xl:w-[250px]">                   
-                        <img class="w-full h-fit object-cover object-center" src="{{ product.featured_image |  image_url }}" alt="product">
-                    </div>
-                    <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
-                        <h3 class="text-center text-lg font-semibold text-black">
-                            {{ product.title }}
-                        </h3>
-                        <div>
-                            <p class="text-center text-base font-normal text-gray-300 line-through">
-                                {{ product.compare_at_price |  money }}
-                            </p>
-                            <p class="text-center text-base font-normal text-black">
-                                From {{ product.price |  money }}
-                            </p>
-                        </div>
-                        
-                    </div>
-                </a>
+            {% for product in section.settings.product_list %} 
+            <div class="min-w-[300px] rounded-2xl border h-[550px] max-w-[300px] hover:shadow-xl mb-5">
+                <img class="block w-full h-[300px]  rounded-2xl object-cover object-center" src="{%- if product.featured_image -%}{{ product.featured_image |  image_url: width:master }}{%- else -%}{{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
+                <div style="background-color: " class="h-[200px]  flex justify-center items-center flex-col rounded-b-2xl my-2">
+                    <h3 style="color:" class="text-xl font-semibold text-center my-1 px-4">
+                        {{ product.title }}
+                    </h3>
+                    <p style="color: " class="text-base font-normal text-center mb-3 px-1 line-through">
+                        {{ product.compare_at_price |  money }}
+                    </p>
+                    <p style="color: " class="text-base font-normal text-center mb-3 px-1">
+                        {{ product.price |  money }}
+                    </p>
+                    <button class="py-2 px-4 rounded-lg bg-black text-white">                
+                        <a href="#">
+                            Add To Card
+                        </a>
+                    </button>
+                </div>
+            </div>
             {% endfor %}
             {% else %}
-                {% for item in (1..12) %}
-                    <a href="#" class="border bg-gray-50 mr-4 w-[223px] h-[434px] flex justify-around items-center flex-col px-4 rounded-2xl lg:hover:shadow-xl xl:w-[300px]">
-                        <div class="w-[153px] h-[153px] xl:w-[250px]">          
-                            <img width="193" height="193"  class="w-full object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="product">
-                        </div>
-                        <div class="w-[200psx] py-4 xl:w-[250px] xl:mt-10">
-                            <h3 class="text-center text-lg font-semibold text-black">
-                                Product Here
-                            </h3>
-                            <div>
-                                <p class="text-center text-base font-normal text-gray-300 line-through">
-                                    $999
-                                </p>
-                                <p class="text-center text-base font-normal text-black">
-                                    From $878
-                                </p>
-                            </div>
-                            
-                        </div>
-                    </a>                   
-                {% endfor %}
+            {% assign productNames = "product-1.svg,product-2.svg,product-3.svg,product-4.svg,product-5.svg,product-6.svg," |  split: "," %}
+            {% for productName in productNames %}
+            <div class="min-w-[300px] rounded-2xl border h-[550px] max-w-[300px] hover:shadow-xl mb-5">
+                <img class="block w-full h-[300px]  rounded-2xl object-cover object-center" src="{{ productName |  asset_url }}" alt="{{ productName }}">
+                <div style="background-color: " class="h-[200px]  flex justify-center items-center flex-col rounded-b-2xl my-2">
+                    <h3 style="color:" class="text-xl font-semibold text-center my-1 px-4">
+                        {{ productName |  replace: '.svg', "" |  capitalize  }}
+                    </h3>
+                    <p style="color: " class="text-base font-normal text-center mb-3 px-1 line-through">
+                        299
+                    </p>
+                    <p style="color: " class="text-base font-normal text-center mb-3 px-1">
+                        199
+                    </p>
+                    <button class="py-2 px-4 rounded-lg bg-black text-white">                
+                        <a href="#">
+                            Add To Card
+                        </a>
+                    </button>
+                </div>
+            </div>  
+            {% endfor %} 
         {% endif %}
     </div>
 </section>
