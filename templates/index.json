@@ -59,13 +59,37 @@
       "type": "featured-collection",
       "settings": {
         "collection_list": [
-
+          "bags-pouches",
+          "intralock",
+          "magnetic-accessories",
+          "phone-cases",
+          "screen-protectors",
+          "wireless-chargers"
         ],
         "featured_collection_background_id": "#ffffff",
         "featured_collection_shadow_checkbox_id": false,
         "featured_collection_shadow_id": "lg",
         "featured_collection_shadow_hover_checkbox_id": true,
         "featured_collection_shadow_hover_id": "2xl"
+      }
+    },
+    "favourites_product_YH78Bx": {
+      "type": "favourites-product",
+      "settings": {
+        "product_list": [
+          "100w-3-in-1-magnetic-wireless-charger-pad-for-iphone-15-14-13-12-pro-max-airpods-iwatch-8-7-fast-charging-dock-station-chargers",
+          "100w-wireless-charger-pad-for-iphone-14-13-12-11-pro-xs-x-xr-8-induction-type-c-fast-charging-pad-for-samsung-s22-s21-s20-xiaomi",
+          "100w-wireless-charger-pad-for-iphone-15-14-13-12-pro-max-samsung-s21-s20-s10-s9-xiaomi-induction-fast-charging-docking-station",
+          "10w-wireless-charger-for-tesla-model-3-2017-2018-2019-2020-accessories-dual-phone-charging-pad-car-center-console-interior",
+          "15w-fast-wireless-charging-pad-for-google-pixel-8-7a-7-6-pro-wireless-charger-charging-indicator-with-type-c-cable-gift-case",
+          "2022-aluminum-alloy-universal-handlebar-bicycle-phone-holder-mount-holder-for-phone-phone-holder-stylish-phone-holder-hot-sale",
+          "2024-new-tactical-edc-pouch-key-wallet-holder-men-coin-purses-pouch-bag-keychain-zipper-pocket-outdoor-key-bag",
+          "2pcs-full-screen-protector-fingerprint-unlock-for-samsung-galaxy-s24-ultra-plus-s20-s21-s23-fe-s21-s22-s23-plus-tempered-glass",
+          "2pcs-tempered-glass-for-samsung-s23-s22-plus-a14-a24-a34-a12-a13-a22-a23-a32-a73-a53-a33-5g-a70-a50-a71-a52-a72-screen-protector",
+          "3-in-1-wireless-charger-for-samsung-galaxy-watch-6-5-pro-fast-charging-station-for-galaxy-s24-s23-s22-alarm-clock-chargers-stand",
+          "3pcs-glass-for-samsung-galaxy-a10-a20e-a21s-a30s-a40-a50-a70-screen-protector-for-samsung-a12-a22-a31-a32-a51-a52s-5g-m21-m31",
+          "3pcs-screen-protector-for-huawei-p30-p40-p20-mate-20-lite-y6-y7-tempered-glass-on-huawei-p-smart-z-2019-2018-nova-3-glass"
+        ]
       }
     },
     "card_6kTjQr": {
@@ -176,34 +200,15 @@
         "image_card_bg_color_id": "#ffffff",
         "image_card_section_padding_id": "py-0"
       }
-    },
-    "favourites_product_YH78Bx": {
-      "type": "favourites-product",
-      "settings": {
-        "product_list": [
-          "100w-3-in-1-magnetic-wireless-charger-pad-for-iphone-15-14-13-12-pro-max-airpods-iwatch-8-7-fast-charging-dock-station-chargers",
-          "100w-wireless-charger-pad-for-iphone-14-13-12-11-pro-xs-x-xr-8-induction-type-c-fast-charging-pad-for-samsung-s22-s21-s20-xiaomi",
-          "100w-wireless-charger-pad-for-iphone-15-14-13-12-pro-max-samsung-s21-s20-s10-s9-xiaomi-induction-fast-charging-docking-station",
-          "10w-wireless-charger-for-tesla-model-3-2017-2018-2019-2020-accessories-dual-phone-charging-pad-car-center-console-interior",
-          "15w-fast-wireless-charging-pad-for-google-pixel-8-7a-7-6-pro-wireless-charger-charging-indicator-with-type-c-cable-gift-case",
-          "2022-aluminum-alloy-universal-handlebar-bicycle-phone-holder-mount-holder-for-phone-phone-holder-stylish-phone-holder-hot-sale",
-          "2024-new-tactical-edc-pouch-key-wallet-holder-men-coin-purses-pouch-bag-keychain-zipper-pocket-outdoor-key-bag",
-          "2pcs-full-screen-protector-fingerprint-unlock-for-samsung-galaxy-s24-ultra-plus-s20-s21-s23-fe-s21-s22-s23-plus-tempered-glass",
-          "2pcs-tempered-glass-for-samsung-s23-s22-plus-a14-a24-a34-a12-a13-a22-a23-a32-a73-a53-a33-5g-a70-a50-a71-a52-a72-screen-protector",
-          "3-in-1-wireless-charger-for-samsung-galaxy-watch-6-5-pro-fast-charging-station-for-galaxy-s24-s23-s22-alarm-clock-chargers-stand",
-          "3pcs-glass-for-samsung-galaxy-a10-a20e-a21s-a30s-a40-a50-a70-screen-protector-for-samsung-a12-a22-a31-a32-a51-a52s-5g-m21-m31",
-          "3pcs-screen-protector-for-huawei-p30-p40-p20-mate-20-lite-y6-y7-tempered-glass-on-huawei-p-smart-z-2019-2018-nova-3-glass"
-        ]
-      }
     }
   },
   "order": [
     "header_image_QfkXfB",
     "featured_collection",
+    "favourites_product_YH78Bx",
     "card_6kTjQr",
     "info_cards_mMMPia",
     "image_cards_kTkdGU",
-    "image_cards_Tyw8GW",
-    "favourites_product_YH78Bx"
+    "image_cards_Tyw8GW"
   ]
 }
