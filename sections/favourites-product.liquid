@@ -21,8 +21,8 @@
             <div class="min-w-[300px] rounded-2xl border h-[550px] max-w-[300px] hover:shadow-xl mb-5">
                 <img class="block w-full h-[300px]  rounded-2xl object-cover object-center" src="{%- if product.featured_image -%}{{ product.featured_image |  image_url: width:master }}{%- else -%}{{ 'collection-2.svg' |  asset_url }} {%- endif -%}" alt="">
                 <div style="background-color: " class="h-[200px]  flex justify-center items-center flex-col rounded-b-2xl my-2">
-                    <h3 style="color:" class="text-xl font-semibold text-center my-1 px-4">
-                        {{ product.title }}
+                    <h3 style="color:" class="text-lg font-semibold text-center my-1 px-2">
+                        {{ product.title |  truncate: 70 }}
                     </h3>
                     <p style="color: " class="text-base font-normal text-center mb-3 px-1 line-through">
                         {{ product.compare_at_price |  money }}
