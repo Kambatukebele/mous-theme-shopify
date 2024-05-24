@@ -1,51 +1,80 @@
+{% # Filter Product %}
+
+{% # ENDFilter Product %}
 <section class="w-full h-fit mt-3 mb-10">
-  <div class="container mx-auto grid gap-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+  <div class="container mx-auto">
     {% if collection.products != blank %}
-      {% for product in collection.products %}
-        <div class="w-[100%] bg-red-400 min-h-[350px] border relative">
-          <div class="w-full h-[200px]">
-            <img class="w-full h-full object-cover object-center" src="{{ product.featured_image |  image_url: width:master  }}" alt="">
-          </div>
-          <div class="w-full h-[150px] py-4 flex justify-center items-center flex-col gap-4 bg-green-50">
-            <h5 class="text-xs font-semibold px-1 text-center sm:text-lg">
-            {{ product.title |  truncate: 40 }}
-            </h5>
-            <p class="text-[10px] font-light px-4 line-through sm:text-sm">{{ product.compare_at_price |  money }}</p>
-            <p class="text-[10px] font-light px-4 sm:text-sm">{{ product.price | money }}</p>
-            <button class="hidden lg:block lg:w-36 lg:text-white lg:bg-black lg:rounded-full lg:py-2 lg-px-4 ">
-              <a href="#">Add to Cart</a>
-            </button>
-            <div class="absolute top-2 right-2">
-              <button class="block bg-black text-white p-1 text-[8px] rounded-md mb-1 sm:text-sm sm:p-2">NEW</button>
-              <button class="block bg-black text-white p-1 text-[8px] rounded-md sm:text-sm sm:p-2">10% OFF</button>
+      {% paginate collection.products by {{ section.settings.products_per_page_id }} %}
+        <div class="w-full grid gap-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-{{ section.settings.collums_desktop_id }}">
+        {% for product in collection.products %}             
+          <a href="{{ product.url }} " class="w-full h-fit relative">
+            <div class="w-full min-h-[138px] max-h-full rounded-xl bg-gray-50 border">
+              <img class="w-full h-full object-cover object-center rounded-xl" src="{{ product.featured_image |  image_url: width:master  }}" alt="">
             </div>
-          </div>
+            <div class="w-full h-[150px] max-h-full flex justify-center items-center flex-col gap-4 lg:h-[210px] xl:h-[220px]">
+              <h5 class="text-xs font-semibold px-1 text-center sm:text-lg">
+              {{ product.title |  truncate: 40 }}
+              </h5>
+              <p class="text-[10px] font-light px-4 line-through sm:text-sm">{{ product.compare_at_price |  money }}</p>
+              <p class="text-[10px] font-light px-4 sm:text-sm lg:text-base">{{ product.price | money }}</p>
+              {% comment %} Variants {% endcomment %}
+              {% comment %} {% if product.variants.size != blank %}
+                <div>
+                  {% for variant  in product.variants %}
+                    <div>
+                      {{ variant.title }}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %} {% endcomment %}
+              <div class="absolute top-2 right-2">
+                <button class="block bg-black text-white p-1 text-[8px] rounded-md mb-1 sm:text-sm sm:p-2">NEW</button>
+                <button class="block bg-black text-white p-1 text-[8px] rounded-md sm:text-sm sm:p-2">10% OFF</button>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
         </div>
-      {% endfor %}
+        <div class="flex justify-center items-center mt-8 gap-3">
+          {{ paginate | default_pagination }}
+        </div>
+      {% endpaginate %}
       {% else %}
-      {% for product_test in (1..10)  %}
-        <div class="w-[100%] border relative">
-          <img class="w-full min-h-[138px] object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="">
-          <div class="w-full h-fit py-4 flex justify-center items-center flex-col gap-4 bg-green-50">
-            <h5 class="text-xs font-semibold px-1 text-center sm:text-lg">Extreme Commuter Backpack with Lid</h5>
-            <p class="text-[10px] font-light px-1 text-center sm:text-sm">
-              Ideal for the busy commuter who prioritises total security on the go.
-            </p>
-            <p class="text-[10px] font-light px-4 sm:text-sm">$249.99</p>
-            <button class="hidden lg:block lg:w-36 lg:text-white lg:bg-black lg:rounded-full lg:py-2 lg-px-4 ">
-              <a href="#">Add to Cart</a>
-            </button>
-            <div class="absolute top-2 right-2">
-              <button class="block bg-black text-white p-1 text-[8px] rounded-md mb-1 sm:text-sm sm:p-2">NEW</button>
-              <button class="block bg-black text-white p-1 text-[8px] rounded-md sm:text-sm sm:p-2">10% OFF</button>
+      <div class="grid gap-4 grid-cols-2 md:grid-cols-3">
+        {% for product_test in (1..10)  %}
+          <div class="w-[100%] border relative">
+            <img class="w-full min-h-[138px] object-cover object-center" src="{{ 'product-1.svg' |  asset_url }}" alt="">
+            <div class="w-full h-fit py-4 flex justify-center items-center flex-col gap-4 bg-green-50">
+              <h5 class="text-xs font-semibold px-1 text-center sm:text-lg">Extreme Commuter Backpack with Lid</h5>
+              <p class="text-[10px] font-light px-1 text-center sm:text-sm">
+                Ideal for the busy commuter who prioritises total security on the go.
+              </p>
+              <p class="text-[10px] font-light px-4 sm:text-sm">$249.99</p>
+              {% comment %} <button class="hidden lg:block lg:w-36 lg:text-white lg:bg-black lg:rounded-full lg:py-2 lg-px-4 ">
+                <a href="#">Add to Cart</a>
+              </button> {% endcomment %}
+              <div class="absolute top-2 right-2">
+                <button class="block bg-black text-white p-1 text-[8px] rounded-md mb-1 sm:text-sm sm:p-2">NEW</button>
+                <button class="block bg-black text-white p-1 text-[8px] rounded-md sm:text-sm sm:p-2">10% OFF</button>
+              </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     {% endif %}
   </div>
 </section>
 
+<style>
+  .page{
+    padding: 3px 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+</style>
 
 
 {% schema %}
@@ -56,20 +85,27 @@
     {
      "type": "range",
      "id": "products_per_page_id",
-     "min": 8,
+     "min": 12,
      "max": 36,
      "step": 4,
      "default": 16,
      "label": "Product Per Page"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "collums_desktop_id",
       "label": "Collums Desktop",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 4
+      "options": [
+        {
+          "label": "3 Collums",
+          "value": "3"
+        },
+        {
+          "label": "4 Collums",
+          "value": "4"
+        }
+      ],
+      "default": "3"
     }
   ]
 }
