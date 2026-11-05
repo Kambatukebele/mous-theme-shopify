@@ -4,7 +4,7 @@
 <section class="w-full h-fit mt-3 mb-10">
   <div class="container mx-auto">
     {% if collection.products != blank %}
-      {% paginate collection.products by {{ section.settings.products_per_page_id }} %}
+      {% paginate collection.products by nil %}
         <div class="w-full grid gap-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-{{ section.settings.collums_desktop_id }}">
         {% for product in collection.products %}             
           <a href="{{ product.url }} " class="w-full h-fit relative">
@@ -110,3 +110,14 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% paginate collection.products by {{ section.settings.products_per_page_id
+    }} %}"
+  to: "{% paginate collection.products by nil %}"
+  position: 174..215
+{% endcomment %}
